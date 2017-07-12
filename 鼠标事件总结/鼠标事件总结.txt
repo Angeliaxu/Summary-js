@@ -1,0 +1,32 @@
+js中鼠标事件主要有onclick，onmousedown，onmouseup，oncontextmenu，ondblclick,所有的这些事件都包含有一个事件对象event，当然在IE低版本下，event对象是挂在window底下的。这个我们另行讨论。
+
+　　1.通过html添加事件　
+
+<input type="button" click="alert(1)"/>
+　　2.通过DOM0级方式添加事件
+
+<input type="button" value="点击"/>
+<script>
+    var btn=document.getElementsByTagName('input')[0];
+    btn.onclick=function(){
+         alert(1);
+}
+</script>
+　　3.通过DOM2级方式添加事件
+
+　　　　事件监听主要接受三个参数，事件类型，事件需要执行的函数，是否冒泡，默认情况下是允许冒泡的
+
+document.addEventListener('click',function( ){ },true)
+　以上是关于事件添加的三种方式，通过DOM0级方式添加事件有一个缺点就是当添加同一个事件是，后写的会把先写的给覆盖掉，但是通过DOM2级方式添加的相同事件是不会覆盖前面的事件的。同时，需要注意的是通过DOM2级添加的事件类型前面是没有‘on’的，接着就是如果要移除事件的话，DOM0级直接让事件为null就能清除事件，但是如果是DOM2级添加的函数是匿名函数，通过removeEventListener（）方法是没办法移除的，因为两者指向的不是同一个函数，如果要移除，请记得使用有名函数。关于最后一个参数true是代表冒泡，false是代表捕获。
+
+ 
+
+/*
+* 当触发onclick事件时，console.log(ev.which),鼠标左键的which值为1
+* 当触发oncontextmenue时，鼠标的右键值为3，不会触发onclick事件
+* 当mousewheel时，鼠标的中键键值为0
+* 当document.down时，可以根据按键的不同，从左到右鼠标键值依次为1,2,3
+* 在chrome底下，查看ev.wheelDelta,向上是120，向下是-120
+* 在FirFox底下，通过addEventListenner()来给鼠标添加滚轮事件，事件类型是DOMMouseScroll，查看是使用ev.detail
+* 向上是3，向下是-3
+*

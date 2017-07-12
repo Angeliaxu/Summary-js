@@ -1,0 +1,41 @@
+表单结构如下所示：
+
+　　<form >
+　　　　<input type="text" name="txt" id="txt" value="" />
+　　　　<input type="submit" name="sub" id="sub" value="提交" />
+　　　　<input type="button" value="点击" name="button"/>
+　　　　<input type="button" value="重置" name="resets"/>
+　　　　<input type="reset" name="resets1" id="" value="重置" />
+　　</form>
+<script type="text/javascript">
+var form=document.getElementsByTagName('form')[0];
+/*当每次在输入框中输入内容时都会触发oninput事件*/
+　　form.txt.oninput=function(){ 
+　　　　console.log(this.value); 
+　　}
+/*当在输入框中输入内容时，并不会马上触发onchange事件，而是当输入框失去焦点时就会触发onchange事件*/
+　　form.txt.onchange=function(){ 
+　　　　console.log(this.value); 
+　　}
+/*在这里，onsubmit事件是form底下的一个事件，不是在submit按钮上，点击之前触发onsubmit事件，
+因此可以有判断条件来限制输入框里面的内容，*/
+　　　　form.onsubmit=function(ev){
+　　　　　ev.preventDefault();
+　　　　　if(!form.txt.value){
+　　　　　　alert('请输入内容');
+　　　　　　};
+　　}
+/*当使用submit提交按钮时，输入框的值和提交value值会在导航栏当中显示出来。显示在hash值当中，name=vale&name=value；
+但是当按钮是button时，显示在地址栏中的只有txt的name=value，不会把button中的name和value值显示出去
+submit()不会触发onsubmit事件，所以要先做验证，再用submit()方法提交*/
+　　form.button.onclick=function(){
+　　　　form.txt.value?form.submit():alert('请输入内容');	
+　　}
+//重置表单
+　　form.resets.onclick=function(){
+　　　　form.reset();
+　　}
+//重置表单的第二种方式
+form.resets1=function(){
+
+}

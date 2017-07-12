@@ -1,0 +1,34 @@
+关于元素，BOM中各种数值的总结
+
+　　最近学了DOM，BOM，还有鼠标事件，对于这里面的各种什么可视区宽高，获取混杂模式下的滚动条距离，以及鼠标到屏幕，文档，可视区的距离绕来绕去都给弄混乱了，因此专门写一遍文章来总结，理清思路。
+
+　　首先，先总结DOM元素身上的各种属性和方法。
+
+规定：从内到外，依次是div1，div2，body。
+
+offsetParent ：最近的有定位属性的节点，如果祖先节点没有定位，默认是body，假设div1 相对于div2定位，那么div1.offsetParent就是div2 。如果div1 不是相对于div2定位，那么div1.offsetParent是body。
+offsetLeft，offsetTop ：外边框到有定位父级的内边框的距离，假设div1相对于div2定位，那么div1.offsetTtop值就是红色上外边框到绿色上内边框的距离。offsetLeft值类似。
+clientWidth,clientHeight ：是指元素的宽高，但是并不包括边框，比如这里的div1.clientWidth和div1.clientHeight其实就是不计算边框的div1的宽和高。
+offsetWidth，offsetHeight :：与clientheight / clientwidth相反，offsetHeight / offsetWIdth 是指包括边框在内的元素的宽高。
+getBoundingClientRect（）：这个方法就是对上面的所有属性的总结，这个方法下面包括left ，right，top，bottom，height，width。
+div1.offsetLeft=div1.getBoundingClientRect( ).left;
+div1.offsetTop=div1.getBoundingClientRect( ).Top;
+div1.offsetwidth=div1.getBoundingClientRect( ).width;
+div1.offsetHeight=div1.getBoundingClientRect( ).height;
+div1.offsetLeft+div1.offsetWidth=div1.getBoundingClientRect( ).right;
+div1.offseTop+div1.offsetHeight=div1.getBoundingClientRect( ).bottom;
+可视区宽高：document.documentElement.clientWidth / document.body.clientWidth，记得使用的时候清除body身上的padding，margin值，这样两个得出来的值才相等。在考虑低版本的兼容的情况下，使用上面两个方法。不考虑兼容的情况下（比如说移动端），使用Window对象下的Window.innerWidth和Window.innerHeight。
+
+BOM：
+
+	滚动条滚动距离：在Chrome底下，浏览器认为滚动条是在body底下的，所以获取滚动条距离通过document.body.scrollTop 和document.body.scrollLeft。在IE和火狐底下，获取滚动条距离是根据document.documentElement.scrollLeft，如果在火狐底下使用document.body.scrollTop 和document.body.scrollLeft，得出来的值是0。同理，在Chrome下获取document.documentElement.scrollLeft也是0。
+为了规范上面的用法，获取滚动条距离pageXOffset，pageYOffset。
+设置滚动条的距离scrollTo（x，y）。
+设备尺寸的宽高:screen.width，screen.height。
+　
+事件对象：
+
+ev.clientX，ev.clientY：是指鼠标位置到可视区左边，上边的距离。
+ev.offsetX，ev.offsetY：鼠标位置到触发元素左边，上边的距离。
+ev.pagetX，ev.pagetY：鼠标位置到文档左，上的距离。
+ev.screenX，ev.screenY：鼠标位置到设备左，上的距离。
