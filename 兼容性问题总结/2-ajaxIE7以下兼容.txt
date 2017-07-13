@@ -1,0 +1,28 @@
+实例化ajax对象，完成数据交互，IE7以下有兼容问题,E6以下ActiveXObject('Microsoft.XMLHTTP');
+正常情况下使用XMLHttpRequest();
+var j=null;
+if(window.XMLHttpRequest){
+	j=new XMLHttpRequest();
+}else{
+	j=new ActiveXObject('Microsoft.XMLHTTP');
+}
+
+或者 使用try catch语句
+	try{
+		j=new XMLHttpRequest();
+	}catch(e){
+		j=new ActiveXObject('Microsoft.XMLHTTP');
+	}
+
+j.open()方法：三个参数 打开方式 地址 是否异步
+（异步：非阻塞；同步：阻塞（当前面代码没做完，后面的不会执行））
+
+form表单中的知识：
+1.enctype:数据提交的格式
+2.get:把数据名称和数据值用=链接，如果有多个的话，他会把多个数据组合用&链接。
+然后把数据放到url？后面。可以手动修改数据值
+3.post：
+get和post数据的串联方式没有区别，区别在于发送的形式不一样。
+url长度限制的原因，根据浏览器不同限制不一样，通过get方式不要传递过多数据
+post理论上无限制，php里面默认的大小值是8M，还可以自己修改大小。php中可以通过$REQUEST来获取
+不管是post还是get方式的值。post方式可以传送文本 ，二进制，get传递字符串

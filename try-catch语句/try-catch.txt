@@ -1,0 +1,8 @@
+ try catch:代码尝试执行这个块中的内容，如果有错误，则会执行catch{}并且传入错误信息参数
+ try{
+				alert(a);
+			}catch(e){
+				console.log(e);
+				alert(1);
+			}
+抛出的信息为 a未定义
