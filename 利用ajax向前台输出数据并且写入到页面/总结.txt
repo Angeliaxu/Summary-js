@@ -1,0 +1,16 @@
+php语言特性：
+新建数组：$arr=array(
+		array('title'>='js'),
+		array(),
+		array(),
+		array(),
+		array(),
+		array()
+);
+向前段输出内容：echo +'';
+获取变量值：{$age}
+把数组转换成json格式传输给前台：json_encode(数组名);
+ajax接受到的responseText(),是个类数组，类型是String，前段需要使用此数据，需要
+使用JSON.parse()转换成对象类型。
+如果php文件中的数据在实时变动，在前段开着定时器，通过ajax可以实时获取内容。
+IE7以下不兼容Json，需要在Json官网下文档。

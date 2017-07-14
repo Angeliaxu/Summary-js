@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+			<input type="button" name="btn"  value="按钮" />
+			<ul id="list"></ul>
+	<script type="text/javascript">
+		var inputs=document.getElementsByTagName('input')[0];
+		inputs.onclick=function(){
+			var j=new XMLHttpRequest();
+			j.open('get',"2-getdata.php",true);
+			j.send();
+			j.onreadystatechange=function(){
+				if(j.readyState==4){
+					if(j.status==200){
+						//typeof j.responseText 字符串
+//					alert(j.responseText);
+					var arr=JSON.parse(j.responseText);
+					var uls=document.getElementById("list");
+					var html='';
+//					console.log(j.responseText)
+					console.log(arr);
+					for(var i=0;i<arr.length;i++){
+						html+='<li><a href="javascript:;">'+arr[i].title+'</a>[<span>'+arr[i].data+'</span>]</li>';
+					}
+					uls.innerHTML=html;
+					}
+				
+				}
+			}
+		}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+			<input type="button" name="btn"  value="按钮" />
+	<script type="text/javascript">
+		
+		//jsonIE7以下不支持，去json官网，下载相应文件
+		/*
+		 json，stringify把数组转换成类数组，其实是个字符串
+		 * parse：把字符串转成对应对象
+		 * */
+		var inputs=document.getElementsByTagName('input')[0];
+		inputs.onclick=function(){
+			var j=new XMLHttpRequest();
+			j.open('get',"1-php.php",true);
+			j.send();
+			j.onreadystatechange=function(){
+				if(j.readyState==4){
+					if(j.status==200){
+					alert(j.responseText);
+					}
+				
+				}
+			}
+		}
+		</script>
+	</body>
+</html>
