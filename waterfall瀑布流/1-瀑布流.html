@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				margin:0;
+				padding:0;
+			}
+			ul{
+				width:1100px;
+				margin:100px auto 0;
+			}
+			li{
+				width:250px;
+				list-style: none;
+				float: left;
+				margin-left:10px;
+			}
+			div{
+				border:1px solid #000; padding: 10px;
+				margin-bottom: 10px;
+			}
+			img{
+				width:225px;
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="list">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<script type="text/javascript" src="ajax.js"></script>
+		<script type="text/javascript">
+			var list=document.getElementById("list");
+			var li=list.getElementsByTagName('li');
+			ajax('get','data.php','cpage=1',function(data){
+				var arr=JSON.parse(data);
+				/*在这里，存在一个问题就是：当计算li的高度时，由于被加载的图片
+				 在还未请求过来，这就造成了被填充的li高度比较时是最小的，又会被往里面
+				 添加图片，所以某一列li的高度就会很长很长，这时，可以选在给img设置高度
+				 这样就不会怕数据还未被获取到下一张图片往里面插入
+				 * */
+				for(var i=0;i<arr.length;i++){
+					var index=getshort();
+					var div=document.createElement('div');
+					var img=document.createElement('img');
+					var p=document.createElement('p');
+//					img.height=arr[i].height*(225/arr[i].width)+'px';
+					img.src=arr[i].preview;
+					p.innerHTML=arr[i].title;
+					div.appendChild(img);
+					div.appendChild(p);
+					li[index].appendChild(div);
+				}
+			})
+			
+			//创建一个函数，获取四个li中高度最短的li，并在里面插入图片
+			function getshort(){
+				var index=0;
+				var ih=li[index].offsetHeight;
+				for(var i=1;i<li.length;i++){
+					if(li[i].offsetHeight<ih){
+						index=i;
+						ih=li[i];
+					}
+				}
+				return index;
+			}
+	
+		</script>
+	</body>
+</html>

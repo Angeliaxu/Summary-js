@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var s2='{"left":"100px"}';
+			var a2=JSON.parse(s2);
+			console.log(s2);
+			/*
+			 JSON格式很严格，如果k值没有被双引号包着，直接使用json.parse（）
+			 转化，输出a2.left会报错。
+			 * */
+			console.log(a2.left);
+		</script>
+	</body>
+</html>

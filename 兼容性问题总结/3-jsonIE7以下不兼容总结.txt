@@ -1,0 +1,3 @@
+json在IE7以下不兼容，需要引入json.js文件使用
+json.stringofy:对象转换成对应字符串
+json.parse()：字符串转换成对应对象
