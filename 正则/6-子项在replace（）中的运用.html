@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*匹配子项：小括号（），或者提升权级
+			 */
+			var str='2013-6-19';
+//			str.replace(/\d-+/g,function($0){
+//				// 3- 6- 注意这里+代表最少匹配一个，最多不限，所以3-和6-可以被匹配到
+//				console.log($0);
+//			})
+//			str.replace(/(\d-)+/g,function($0,$1){
+//				// 3-6- 注意这里+代表最少匹配一个，最多不限，所以3-6-可以被匹配到
+//				console.log($0,$1);
+//			})
+			str.replace(/(\d+)(-)/g,function($0,$1,$2,$3,$4,$5){
+				//console.log($0);//2013- 6-
+				//console.log($1);//2013 6
+				//console.log($2);//-
+				//console.log($3);//0 5
+				//console.log($4);//2013-6-19
+				//console.log($5);undefined
+			})
+			/*有几个子项，function参数里面从第二个参数起就对应几个参数
+			 * $0:匹配到的字符串
+			 * $1:(\d+) 2013 6
+			 * $2：(-) - -
+			 * $3:索引
+			 * $4:整个字符串
+			 * */
+			var  str='你的名字是{name}，今年{age}岁';
+			 var j={
+			 	name:'小红',
+			 	age:15
+			 }
+			 var y=str.replace(/{(\w+)}/g,function($0,$1){
+			 	console.log($1);
+			 	return j[$1];
+			 })
+			 console.log(y);
+		</script>
+	</body>
+</html>

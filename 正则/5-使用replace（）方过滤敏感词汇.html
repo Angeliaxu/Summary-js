@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var str='它是一个瓜娃子';
+			var x=str.replace(/瓜娃子/,function($0){
+				var str='';
+				for(var i=0;i<$0.length;i++){
+					str+='*';
+				}
+				return str;
+			})
+			console.log(x);
+		</script>
+	</body>
+</html>

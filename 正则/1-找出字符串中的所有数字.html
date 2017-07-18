@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 	目的：查找字符串中出现的所有数字。
+			 	
+			 * 	总结：'0'<str.charAt(i)<'9'，这里不应该这样写，因为这样写的
+			 * 话，字符串中的所有的字符都比0大，结果就是true，当true去和9比较时
+			 * true会转换成1，这样无论怎样比较，if里的结果都是为true
+			 * 
+			 * 	大致的思路就是查找字符串的每一个字符，当字符为数字是，用一个变量+=数字
+			 * 不为数字时，判断temp是否为true，为true的话把temp放入到数组里面去。然后把temp清空
+			 * 
+			 * 这里有个问题需要注意的就是，当结尾是数字时，，因为数字后面没有非数字的
+			 * 字符，无法走else，也就无法push进入数字。所以，需要在循环外面判断一下，
+			 * 如果temp 非空，那么push进数组
+			 * */
+			var str='hdah2387ncj44sfh374cjdahfuefy762hsla112';
+			var arr=[];
+			var temp='';
+			for(var i=0;i<str.length;i++){
+//				if('0'<str.charAt(i)<'9'){
+//					arr.push(str.charAt(i))
+//				}
+				if(str.charAt(i)>'0'&&str.charAt(i)<'9'){
+					temp+=str.charAt(i);
+				}else{
+					if(temp){
+						arr.push(temp);
+						temp='';
+					}
+					
+				}
+			}
+			if(temp){
+						arr.push(temp);
+						temp='';
+					}
+			console.log(arr);
+			
+			//方法二，使用正则表达式
+			/*
+			 	\d代表的是0-9之间的一个数字，+是代表最少一个，最多不限
+			 * g是代表在整个字符串中查找符合条件的项
+			 * */
+			var str1=str.match(/\d+/g);
+			console.log(str1);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 	如果是用$2来替换的话，-变成.，就相当于把$0变成.
+			 	但是用$1+'.'的话，可以把$0变成2017.2.14
+			 * 
+			 * */
+			var str='2017-2-14';
+			var x=str.replace(/(\d+)(-)/g,function($0,$1,$2){
+				console.log($2);
+				return $1+'.';
+			})
+			console.log(x);
+		</script>
+	</body>
+</html>

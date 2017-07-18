@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*标准方式声明:
+			 new RegExp('要匹配的规则'||//,'修饰符');
+			 
+			 * */
+			var re =new RegExp('a');
+			var re1=new RegExp(/a/);
+			var re2=new RegExp('/a/');
+			console.log(re,re1);// /a/
+			console.log(re2)// /\/a\//
+		</script>
+	</body>
+</html>
