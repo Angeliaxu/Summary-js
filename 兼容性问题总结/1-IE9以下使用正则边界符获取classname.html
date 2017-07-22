@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="list">
+			<li class="list list1 list2"></li>
+			<li class="list list1 list2"></li>
+			<li></li>
+			<li class="list list1 list2"></li>
+			<li></li>
+			<li></li>
+			<li class="list list1 list2"></li>
+		</ul>
+		
+		<script type="text/javascript">
+			function getclass(ele){
+				var t=ele.charAt(0);
+				var allEle=document.getElementsByTagName('*');
+				var arr=[];
+				var re=new RegExp('\\b'+ele.substr(1)+'\\b');
+				console.log(re);
+				if(t=='#'){
+					return document.getElementById(ele.substring(1));
+				}else if(t=='.'){
+					for(var i=0;i<allEle.length;i++){
+						if(allEle[i].className.match(re)){
+							arr.push(allEle[i]);
+						}
+					}
+					return arr;
+				}else{
+					return document.getElementsByTagName(ele);
+				}
+			}
+			console.log(getclass('li'));
+		</script>
+	</body>
+</html>
