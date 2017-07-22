@@ -24,6 +24,47 @@
 		<div>222</div>
 		<div>333</div>
 		<script type="text/javascript">
+			function tab(){
+			this.inputs=document.getElementsByTagName('input');
+			this.divs=document.getElementsByTagName('div');
+			this.n=0;
+			this.innit();
+		}
+		tab.prototype.innit=function(){
+			this.inputs[0].style.background='red';
+			this.divs[0].style.display='block';
+		}
+		tab.prototype.first=function(){
+			var _this=this;
+			for(var i=0;i<this.inputs.length;i++){
+				this.inputs[i].index=i;
+				this.inputs[i].onclick=function(){
+					_this.n=this.index;
+					_this.change(this);
+				}
+			}
+		}
+		tab.prototype.change=function(){
+			for(var i=0;i<this.inputs.length;i++){
+				this.inputs[i].style.background='';
+				this.divs[i].style.display='none';
+			}
+			this.inputs[this.n].style.background='red';
+			this.divs[this.n].style.display='block';
+		}
+		tab.prototype.autoplay=function(){
+			var _this=this;
+			setInterval(function(){
+			 _this.n++;
+			 if(_this.n>_this.inputs.length-1){
+			 	_this.n=0;
+			 }
+			 _this.change();
+			},1000)
+		}
+		var f=new tab();
+		f.first();
+		f.autoplay();
 		</script>
 	</body>
 </html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			Function.prototype.say=function(){
+				alert(1);
+			}
+			Object.prototype.say=function(){
+				alert(2);
+			}
+			/*
+			 	Function的构造函数是它自己，如果自己的原型上没有，
+			 	则去Object身上找
+			 * 
+			 * */
+			Function.say();
+			/*
+			 	Object的构造函数是Function，如果Function的原型上没有，
+			 	则去自己身上找
+			 * 
+			 * */
+			Object.say();
+			
+		</script>
+	</body>
+</html>

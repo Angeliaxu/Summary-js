@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+	
+	function Person(){}
+	Person.name1 = 'hehe';
+	Object.prototype.name = '莉莉';
+	Object.name = '脏莉';
+	Function.prototype.name = '脏脏';　
+	　
+	Person.prototype.name = function(){
+　　　　　alert(this.name); 
+　　}; 
+　　var person1 = new Person(); 
+	person1.name(); 
+	alert(person1.name)		
+	new new function(){return function(){
+		var p = new Person();
+		console.log(p.name);
+	}}
+	
+	console.dir(Person);
+	
+</script>
+</body>
+</html>

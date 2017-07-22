@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			console.dir(alert);// function alert(){}
+			console.log(alert)// function alert(){}
+			console.log(alert.prototype)//undefined
+			console.log(alert.__proto__===Function.prototype);//true
+			console.log(alert instanceof Object);///true
+			console.log(Function.prototype.hasOwnProperty('alert'));//false
+			console.log(Function.prototype.hasOwnProperty('toString'));//true
+			console.log(alert.hasOwnProperty('toString'));//false
+			console.log(alert.prototype.hasOwnProperty('toString'));//报错
+			
+		</script>
+	</body>
+</html>

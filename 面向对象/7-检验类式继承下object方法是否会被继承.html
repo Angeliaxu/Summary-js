@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/* hasOwnproperty()用来检测某个属性是不是对象下的。
+			 */
+			function fn(){};
+			Object.prototype.say=function(){alert('say')};
+			fn.prototype.run=function(){alert('run')};
+			fn.prototype.jump=function(){alert('jump')};
+			
+			function f1(){
+				fn.call(this);
+			};
+			function middle(){};
+			middle.prototype=fn.prototype;
+			f1.prototype=new middle();
+			console.log(f1.prototype);
+			console.log(fn.prototype);
+			var f=new f1();
+			f.run();
+			f.jump();
+			f.say();
+		</script>
+	</body>
+</html>

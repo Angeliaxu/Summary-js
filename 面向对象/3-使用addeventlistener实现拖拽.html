@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box{
+				height:100px;
+				width:100px;
+				background:red;
+				position:absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<script type="text/javascript">
+			function drag(){
+				this.ele=document.getElementById(arguments[0]);
+				this.x=0;
+				this.y=0;
+				this.l=0;
+				this.t=0;
+			}
+			drag.prototype.innit=function(){
+				var _this=this;
+				this.ele.addEventListener('mousedown',function(ev){
+					_this.down(ev);
+				})
+			}
+			drag.prototype.down=function(ev){
+				var _this=this;
+				this.x=ev.clientX-this.ele.offsetLeft;
+				this.y=ev.clientY-this.ele.offsetTop;
+				var move=function(ev){
+					_this.move(ev);
+					}
+				var up=function(){
+					_this.up(move,up);
+					}
+				this.ele.addEventListener('mousemove',move);
+				this.ele.addEventListener('mouseup',up)
+				
+			}
+			drag.prototype.move=function(ev){
+				this.l=ev.clientX-this.x;
+				this.t=ev.clientY-this.y;
+				this.ele.style.left=this.l+'px';
+				this.ele.style.top=this.t+'px';
+			}
+			drag.prototype.up=function(move,up){
+				this.ele.removeEventListener('mousemove',move);
+				this.ele.removeEventListener('moseup',up)
+			}
+			var f=new drag('box');
+			f.innit();
+		</script>
+	</body>
+</html>
