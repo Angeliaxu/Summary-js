@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box div{
+				height:200px;
+				width:200px;
+				border: 1px solid #000;
+				display: none;
+			}
+			#box div.show{
+				display: block;
+			}
+			.active{
+				background: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<script type="text/javascript">
+			function fn(data){
+				this.box=document.getElementById("box");
+				
+				this.setting={
+					title:['体育','科技','技术','娱乐'],
+					content:['2008年北京奥运会在京举行','小米又出黑科技',
+					'前段崛起的框架有React和vue','林肯公园主场自杀']
+				}
+				for(var k in data){
+					this.setting[k]=data[k];
+				}
+				this.btn=this.div=null;
+				this.innit();
+			}
+			fn.prototype={
+				innit(){
+					console.log(this);
+					this.createData();
+					this.createDiv();
+					this.chang();
+				},
+				createData(){
+					for(var k in this.setting.title){
+						var inputs=document.createElement('input');
+						inputs.type="button";
+						if(k==0)inputs.className='active';
+						inputs.value=this.setting.title[k];
+						this.box.appendChild(inputs);
+					}
+				},
+				createDiv(){
+					this.setting.content.forEach(function(item,index){
+						var div=document.createElement('div');
+						div.innerHTML=item;
+						if(index==0)div.className='show';
+						this.box.appendChild(div);
+					})
+				},
+				chang(){
+					
+					var _this=this;
+					this.btn=this.box.getElementsByTagName('input');
+					this.div=this.box.getElementsByTagName('div');
+					for(var i=0;i<this.btn.length;i++){
+						this.btn[i].index=i;
+						this.btn[i].onclick=function(){
+							_this.fn1(this);
+						}
+					}
+				
+				},
+				fn1(_this){
+					for(var i=0;i<this.btn.length;i++){
+						this.btn[i].className='';
+						this.div[i].className='';
+					}
+					_this.className="active";
+					this.div[_this.index].className='show';
+				}
+			}
+			var f=new fn({
+					title:['体育','科技','技术','娱乐','同城小事'],
+					content:['2008年北京奥运会在京举行','小米又出黑科技',
+					'前段崛起的框架有React和vue','林肯公园主场自杀','林肯公园主场自杀']
+				});
+		</script>
+	</body>
+</html>

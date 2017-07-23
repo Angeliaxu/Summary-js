@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*有时候，需要对数据进行克隆，如果是简单数据的类型，直接
+			 for循环赋值给一个数组，但是如果既有简单类型，又有复合类型的
+			话，就需要用到递归的方法来克隆数据 */
+			
+//使用json方式转换数据，但是这种方式只针对于纯数据，如果数据里面包含的有function(){},会被转换成null
+			var arr=[1,2,[3,4,5],{name:'小红'},{age:18},function(){}];
+			var arr1=JSON.parse(JSON.stringify(arr));
+//			console.log(arr1);
+//使用递归方式，这种方式适合于各种数据
+			function fn(obj){
+				var arr=obj.push?[]:{};
+				var toString=Object.prototype.toString;
+				for(var k in obj){
+					if(toString.call(obj[k])=='[object Object]'||toString.call(obj[k])=='[object Array]'){
+							arr[k]=fn(obj[k]);
+					}else{
+						arr[k]=obj[k];
+					}
+				}
+				return arr;
+			}
+			console.log(fn(arr));
+		</script>
+	</body>
+</html>

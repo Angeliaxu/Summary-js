@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				border:1px solid #000;
+				position: absolute;
+				display: none;
+			}
+
+		</style>
+	</head>
+	<body>
+		<input type="button" value="按钮一" />
+		<input type="button" value="按钮二"/>
+		<input type="button" value="按钮三"/>
+		<!--<div id="box">
+			<p></p>
+			
+		</div>-->
+		<script type="text/javascript">
+			var inputs=document.getElementsByTagName('input');
+			function tab(data){
+				this.div=null;
+				this.settings={
+					w:100,
+					h:100,
+					title:'弹窗一',
+					pos:'center'
+				}
+				for(var k in data){
+					this.settings[k]=data[k];
+				}
+				this.innit();
+			}
+			tab.prototype.innit=function(){
+				this.div=document.createElement('div');
+				this.div.className='box';
+				this.div.innerHTML='<p>'+this.settings.title+'</p>';
+				document.body.appendChild(this.div);
+				this.first();
+			}
+			tab.prototype.first=function(){
+				this.div.style.display='block';
+				this.div.style.width=this.settings.w+'px';
+				this.div.style.height=this.settings.h+'px';
+				if(this.settings.pos=='center'){
+					this.div.style.left=(window.innerWidth-this.div.offsetWidth)/2+'px';
+					this.div.style.top=(window.innerHeight-this.div.offsetHeight)/2+'px';
+				}else if(this.settings.pos=='right'){
+					this.div.style.left=window.innerWidth-this.div.offsetWidth+'px';
+					this.div.style.top=window.innerHeight-this.div.offsetHeight+'px';
+				}else if(this.settings.pos=='left'){
+					this.div.style.left=0+'px';
+					this.div.style.top=window.innerHeight-this.div.offsetHeight+'px';
+				}
+			}
+		inputs[0].onclick=function(){
+			var f=new tab({
+					w:300,
+					h:300,
+					title:'弹窗一',
+					pos:'center'
+				});
+		}
+		inputs[1].onclick=function(){
+			var f=new tab({
+					w:200,
+					h:300,
+					title:'弹窗二',
+					pos:'right'
+				});
+		}
+		inputs[2].onclick=function(){
+			var f=new tab({
+					w:200,
+					h:100,
+					title:'弹窗三',
+					pos:'left'
+				});
+		}
+		</script>
+	</body>
+</html>
