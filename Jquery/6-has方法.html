@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li></li>
+			<li></li>
+			<li class="list1"></li>
+			<li><span class="list1"></span></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		
+		<script type="text/javascript" src='jquery-3.2.1.min.js'></script>
+		<script type="text/javascript">
+			//li中className为list1的里元素
+			$('li').filter('.list1').html(123);
+			//li中包含着有名为className是list1的元素
+			$('li').has('.list1').html(456);
+			
+		</script>
+	</body>
+</html>

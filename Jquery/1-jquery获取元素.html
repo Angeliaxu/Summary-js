@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li id="line1"></li>
+			<li class="box"></li>
+			<li></li>
+			<li class="box"></li>
+			<li></li>
+			<li class="box"></li>
+		</ul>
+		<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">
+			//$('li').filter('.box').css('background','red');
+			$('#line1').css('background','yellow')
+			$('.box:eq(1)').css('background','black')
+		</script>
+	</body>
+</html>

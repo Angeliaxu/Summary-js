@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<span>11111</span>
+		<span>22222</span>
+		<span>33333</span>
+		<span>44444</span>
+		<script type="text/javascript" src='jquery-3.2.1.min.js'></script>
+		<script type="text/javascript">
+			$('li').html('123').css('background','red').click(function(){
+				alert($(this).html());
+			});
+			console.log($('span').html());
+		</script>
+	</body>
+</html>

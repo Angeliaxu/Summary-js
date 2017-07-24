@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li></li>
+			<li></li>
+			<li class="list1"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		
+		<script type="text/javascript" src='jquery-3.2.1.min.js'></script>
+		<script type="text/javascript">
+			$('li').filter('.list1').html(123);//筛选一组li中有className为list1的li元素
+			$('li').not('.list1').html(456);//筛选一组li中有className不为list1的li元素
+			
+		</script>
+	</body>
+</html>

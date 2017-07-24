@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box{
+				height:100px;
+				width:100px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<script type="text/javascript" src='jquery-3.2.1.min.js'></script>
+		<script type="text/javascript">
+			console.log($('#box').css('width'));//读取操作
+			console.log($('#box').css('width','200px'));//写操作
+		</script>
+	</body>
+</html>

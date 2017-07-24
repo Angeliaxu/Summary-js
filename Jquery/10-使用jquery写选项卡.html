@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			input{
+				float: left;
+			}
+			#box div{
+				height:200px;
+				width:200px;
+				border:1px solid #000;
+				position: absolute;
+				top:30px;
+				display: none;
+			}
+			.active{
+				background: yellow;
+			}
+			#box div.show{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<input type="button" value="按钮1" />
+			<input type="button" value="按钮2"/>
+			<input type="button" value="按钮3"/>
+			<div>111</div>
+			<div>222</div>
+			<div>333</div>
+		</div>
+<script type="text/javascript" src='jquery-3.2.1.min.js'></script>
+<script type="text/javascript">
+	$('#box').find('div').eq(0).attr('class','show');
+	$('#box').find('input').eq(0).attr('class','active');
+	$('input').click(function(){
+		$('input').attr('class','');
+		$('div').attr('class','');
+		$(this).attr('class','active');
+		$('#box').find('div').eq($(this).index()).attr('class','show');
+	})
+	
+</script>
+	
+	</body>
+</html>

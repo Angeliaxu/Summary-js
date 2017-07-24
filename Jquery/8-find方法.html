@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>
+			<p>1</p>
+			<span>2</span>
+			<em>3</em>
+			<p>1</p>
+			<span>
+			<p>1</p></span>
+			<em>3</em>
+			<p>1</p>
+			<span>2</span>
+			<em>3</em>
+		</div>
+		<script type="text/javascript" src='jquery-3.2.1.min.js'></script>
+		<script type="text/javascript">
+			//div底下的所有p元素，所有的子孙节点
+			$('div').find('p').css('background','red');
+		</script>
+	</body>
+</html>
