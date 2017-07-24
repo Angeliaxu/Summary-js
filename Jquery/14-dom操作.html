@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>1111</div>
+		<span>2222</span>
+		<p>33333</p>
+		<strong>44444</strong>
+		
+		<ul>
+			<li id="list1">1</li>
+			<li id="list2">2</li>
+			<li>3</li>
+			<li id="list3">4</li>
+			<li id="list4">5</li>
+		</ul>
+<script type="text/javascript" src='jquery-3.2.1.min.js'></script>
+<script type="text/javascript">
+	$('span').insertBefore($('div'));//span插入到div的前面
+	$('p').insertAfter($('strong'));//p插入到strong的后面
+	$('#list1').appendTo($('#list2'));//把list1插入到list2下的最后节点
+	$('#list4').prependTo($('#list3'));//把list4插入到list3的第一个节点
+</script>
+	</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				height:100px;
+				width:100px;
+				background: red;
+				border:1px solid #000;
+				padding:10px;
+				margin:10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+<script type="text/javascript" src='jquery-3.2.1.min.js'></script>
+<script type="text/javascript">
+	console.log($('#box').width());//100 不带单位,不加border和padding
+	console.log($('#box').css('width'))//100px  带单位，不加border和padding
+	console.log($('#box').innerWidth());//100+padding
+	console.log($('#box').outerWidth());//100+padding+border
+</script>
+	</body>
+</html>

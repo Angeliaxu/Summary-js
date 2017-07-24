@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">1231434</div>
+		<span>2222</span>
+		<p>222223</p>
+<script type="text/javascript" src='jquery-3.2.1.min.js'></script>
+<script type="text/javascript">
+	$('#box').on('click',function(){
+		alert($(this).html());
+		$(this).off();//解绑事件
+	})
+	$('span').on('click mouseover',function(){
+		alert($(this).html());
+		$(this).off('mouseover');//解绑鼠标划过事件
+	})
+	$('P').on({
+		click:function(){alert(1)},
+		mouseover:function(){alert(2); $(this).off('mouseover')}
+	})
+</script>
+	</body>
+</html>
