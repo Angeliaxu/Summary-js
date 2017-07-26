@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box{
+				height:200px;
+				width:200px;
+				border:1px solid #000;
+				position:absolute;
+			}
+		</style>
+	</head>
+	<body style="height:2000px;">
+		<div id="box"></div>
+<script type="text/javascript" src='jquery-3.2.1.min.js'></script>
+<script type="text/javascript">
+	console.log($(document).innerWidth());
+	$(document).scroll(function(){
+$('#box').css('left',($(window).innerWidth()-$('#box').outerWidth())/2);
+$('#box').css('top',($(window).innerHeight()-$('#box').outerHeight())/2+$(document).scrollTop());		
+	})
+	$(window).resize(function(){
+$('#box').css('left',($(window).innerWidth()-$('#box').outerWidth())/2);
+$('#box').css('top',($(window).innerHeight()-$('#box').outerHeight())/2+$(document).scrollTop());		
+	})
+</script>
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				height:100px;
+				width:100px;
+				background: red;
+			}
+			#box1{
+				height:100px;
+				width:100px;
+				background: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<div id="box1"></div>
+<script type="text/javascript" src='jquery-3.2.1.min.js'></script>
+<script type="text/javascript">
+	/*
+	 	接受两个参数：一参是鼠标移入
+	 				二参是鼠标移开
+	 * 
+	 * */
+	$('#box').hover(()=>{
+		$('#box1').css('background','black');
+	},()=>{
+		$('#box1').css('background','');
+	})
+</script>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				height:100px;
+				width:100px;
+				background: red;
+			}
+			#box1{
+				height:100px;
+				width:100px;
+				background: yellow;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<div id="box1"></div>
+<script type="text/javascript" src='jquery-3.2.1.min.js'></script>
+<script type="text/javascript">
+	/*
+		slideDown（）:向下展开
+		slideup（）：向上卷起
+			接受一个参数，时间秒数 
+	 * */
+	$('#box').hover(()=>{
+
+		$('#box1').slideUp(3000);
+	},()=>{
+		$('#box1').slideDown(3000);
+	})
+</script>
+	</body>
+</html>

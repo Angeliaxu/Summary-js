@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				height:200px;
+				width:200px;
+				background:red;
+				border:1px solid #000;
+				margin:20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+	<script type="text/javascript" src='jquery-3.2.1.min.js'></script>
+	<script type="text/javascript">
+		/*
+		 offsetWidth:不能获取到隐藏元素的宽高，但是outerwidth能获取到，、
+		 同时，如果把outerwidth（）里面的参数设置为true，获取到的宽度+margin值
+		 * */
+//		let offwidth=$('#box').offsetWidth();
+		let w2=$('#box').outerWidth(true);
+		console.log(w2);
+	</script>
+	</body>
+</html>
