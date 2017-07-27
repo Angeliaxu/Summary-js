@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--<input type="button" />
+		<input type="button" />
+		<input type="button" />-->
+<script src="jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	var arr=['数据一','数据二','数据三'];
+	$.each(arr,function(index,item){
+	var ele=$(`<input type="button" value=按钮${index+1}>`).on('click',{${index}:arr[index]},function(ev){
+			console.log(ev.data);
+		})
+	$('body').append(ele);	
+	});
+</script>
+	</body>
+</html>

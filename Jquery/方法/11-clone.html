@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box{
+				height:100px;
+				width:100px;
+				background: red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box"></div>
+		<script src="jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$('#box').click(function(){
+				alert(1);
+			})
+			var x=$('#box').clone();
+			$('body').append(x);
+		</script>
+	</body>
+
+</html>

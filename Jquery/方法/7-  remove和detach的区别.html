@@ -3,7 +3,29 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		<style>
+			#box{
+			height:100px;
+			width:100px;
+			background:red;
+			}
+		</style>
 	</head>
 	<body>
+		<div id="box"></div>
+	<script type="text/javascript" src='jquery-3.2.1.min.js'></script>
+	<script type="text/javascript">
+		/*
+		 	通过remove（）删除节点，返回的是删除的节点，如果有事件，则不带事件返回
+		 	使用detach（）删除节点，返回的是删除的节点，如果有事件，则带事件返回
+		 * */
+		$('#box').click(function(){
+			alert(1);
+		})
+		let r=$('#box').remove();
+		let r1=$('#box').detach();
+		console.log(r1);
+		$('body').append(r1);
+	</script>
 	</body>
 </html>

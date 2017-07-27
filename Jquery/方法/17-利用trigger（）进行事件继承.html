@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box1{
+				height:100px;
+				width:100px;
+				background: red;
+			}
+			#box2{
+				height:100px;
+				width:100px;
+				background: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box1"></div>
+		<div id="box2"></div>
+<script src="jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	
+	$('#box1').on('click.123',function(){
+		alert(1);
+	})
+	$('#box1').on('click',function(){
+		alert(2);
+	})
+	$('#box2').on('click',function(){
+		$('#box1').trigger('click.123');
+	})
+</script>
+	</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>11</li>
+			<li>22</li>
+			<li>33</li>
+			<li>44</li>
+		</ul>
+<script src="jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$('ul').on('click','li',function(){
+//		html()读操作的话只能读集合的第一个，写操作的话可以写全部集合的，text（）读操作的话可以读集合全部的，写操作的话给集合中的每一个写
+		alert($(this).html());
+	})
+	console.log(Object.prototype.toString.call(Boolean));
+</script>
+	</body>
+</html>

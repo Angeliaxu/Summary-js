@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>11</li>
+			<li>22</li>
+			<li>33</li>
+			<li>44</li>
+			<li>55</li>
+		</ul>
+<script src="jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	var span=$('<li>');
+	console.log($('ul:eq(0)').append(span));
+	console.log(span.appendTo($('ul:eq(0)')));
+</script>
+	</body>
+</html>
