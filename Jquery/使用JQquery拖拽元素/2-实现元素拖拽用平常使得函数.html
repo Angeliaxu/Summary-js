@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				height:100px;
+				width:100px;
+				background: yellowgreen;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		w1321373648732648764
+	<div id="box"></div>
+<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+	$('#box').mousedown(function(ev){
+		console.log($(this));
+//		let x=ev.clientX-$('#box').offset().left;
+//		let y=ev.clientY-$('#box').offset().top;
+		let x=ev.clientX-$(this).position().left;
+		let y=ev.clientY-$(this).position().top;
+		$(document).mousemove(function(ev){
+			let x1=ev.clientX-x;
+			let y1=ev.clientY-y;
+			console.log(x1,y1);
+			$('#box').css({
+				left:x1,
+				top:y1
+			})
+
+		})
+		$(document).mouseup(function(){
+			$(this).off();
+		})
+		return false;
+	})
+	document.onclick=()=>{
+		console.log(this);
+	}
+</script>
+	</body>
+</html>
