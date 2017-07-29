@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" />
+		<span>0</span><em>字</em>
+		<ul></ul>
+<script src="jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	let [x=y,y]=[null,5];
+	console.log(x,y)
+	var timer=null;
+	$('input:eq(0)').focus(function(){
+		timer=setInterval(function(){
+			$('span').text($('input').val().length);
+			console.log(111);
+		},40)
+		
+	})
+	$('input:eq(0)').keyup(function(ev){
+		if(ev.keyCode==13){
+			var x=$('<li>'+$('input').val()+'</li>');
+			$('ul').append(x);
+			$('input').val('');
+			$('span').text('0');
+			clearInterval(timer);
+			timer=null;
+		}else{
+			if(!timer){
+				timer=setInterval(function(){
+			$('span').text($('input').val().length);
+			console.log(111);
+		},40)
+			}
+		}
+	})
+$('input:eq(0)').keydown(function(ev){
+	//判断条件不对，因为每当input输入的时候，开启了多个定时器，关的时候不知道关的是那个定时器，但是如果我只输入一个字符的时候，就可以关闭定时器了。
+	if(ev.keyCode!=13){
+		timer=setInterval(function(){
+			$('span').text($('input').val().length);
+			console.log(111);
+		},40)
+		}else{
+			clearInterval(timer);
+		}
+		
+	})
+$('input:eq(0)').keyup(function(ev){
+	
+		if(ev.keyCode==13){
+			var x=$('<li>'+$('input').val()+'</li>');
+			$('ul').append(x);
+			$('input').val('');
+			$('span').text('0');
+			clearInterval(timer);
+		}
+	})
+	
+</script>
+	
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" />
+		<span>0</span><em>字</em>
+		<ul></ul>
+<script src="jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$('input:eq(0)')[0].oninput=function(ev){
+		$('span').text($(this).val().length);
+		
+	}
+	$('input:eq(0)').keyup(function(ev){
+		if(ev.keyCode==13){
+			var x=$(`<li>${$(this).val()}</li>`);
+			$('ul').append(x);
+			$('input:eq(0)').val('');
+			$('span').text('0');
+		}
+	})
+</script>
+	
+	</body>
+</html>
