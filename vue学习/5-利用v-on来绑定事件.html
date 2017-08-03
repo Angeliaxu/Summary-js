@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box" v-on:click="message">{{hello}}</div>
+<script src="vue.js"></script>
+<script type="text/javascript">
+	var app5=new Vue({
+		el:'#box',
+		data:{
+			hello:'你好'
+		},
+		methods:{
+			message(){
+				console.log(this);//th
+				console.log(this.hello);
+				alert(1);
+			}
+		}
+		
+	})
+	console.log(new Vue);
+</script>
+	</body>
+</html>

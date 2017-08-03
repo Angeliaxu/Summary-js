@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+<script src="vue.js"></script>
+<script type="text/javascript">
+	/*
+	 	被代理属性
+	 * */
+	var data={a:1};
+	var vm=new Vue({
+		data:data
+	})
+	console.log(vm.a===data.a)
+	vm.a=3;
+	console.log(data.a);
+</script>
+	</body>
+</html>

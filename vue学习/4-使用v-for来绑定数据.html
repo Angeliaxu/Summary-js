@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id='app4' >
+			<li v-for='x in y'>
+				{{x.txt}}
+			</li>
+		</ul>
+<script src="vue.js"></script>
+<script type="text/javascript">
+	var app4=new Vue({
+		el:'#app4',
+		data:{
+			y:[
+				{txt:'我爱学习'},
+				{txt:'沉迷于学习'},
+				{txt:'无法自拔'}
+			]
+		}
+	})
+	
+</script>
+
+	</body>
+</html>

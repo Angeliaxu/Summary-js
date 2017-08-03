@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	
+	<body>
+	
+		<div id="pp">
+			{{message}}
+		</div>
+		<div class="div">
+			{{message}}
+		</div>
+		<div class="div">
+			{{message}}
+		</div>
+		<div class="div">
+			{{message}}
+		</div>
+		<span >{{message}}</span>
+<script src="vue.js"></script>		
+<script type="text/javascript">
+	/*
+	 	vue绑定数据给单个元素数据绑定，如果想要给所有元素绑定相同值，改怎么办？
+	 * 
+	 * */
+	var div=new Vue({
+		el:'.div',
+		data:{
+			message:'hello vue'
+		}
+	})
+	
+	var demo=new Vue({
+		el:'span',
+		data:{
+			message:'我是span'
+		}
+	})
+</script>
+		
+	</body>
+</html>

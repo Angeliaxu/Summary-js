@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				height:100px;
+				width:100px;
+				border:1px solid #000;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="app2">
+			<span v-bind:title="message">
+				啦啦啦啦 
+			</span>
+			<a id='a' href="javascript:;" v-bind:title="message">我是一个链接</a>
+		</div>
+		
+		<script src="vue.js">	</script>
+		<script type="text/javascript">
+			/*
+			 	绑定在父级身上，子元素身上都有，不能改变子元素身上的title
+			 * 
+			 * */
+			var app2=new Vue({
+				el:'#app2',
+				data:{
+					message:'页面加载于'+new Date()
+				}
+			})
+			var a=new Vue({
+				el:'#a',
+				data:{
+					message:'link'
+				}
+			})
+		</script>
+			
+		
+	</body>
+</html>
