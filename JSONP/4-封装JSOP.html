@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" />
+		<ul id="list"></ul>
+<script type="text/javascript">
+	var txt=document.getElementsByTagName('input')[0];
+	var list=document.getElementById("list");
+	txt.oninput=function(){
+		JSONP({
+			url:'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',
+			data:{
+				wd:txt.value,	
+			},
+			cb:'cb',
+			success:function(data){
+				var html='';
+				for(var i=0;i<data.s.length;i++){
+					html+='<li>'+data.s[i]+'</li>'
+				}
+				list.innerHTML=html;
+			}
+		})
+	}
+	function JSONP(jsonp){
+		let arr=[];
+		let str='';
+		let settings={
+			url:'',
+			data:{
+				wd:'',	
+			},
+			cb:'',
+			success:function(){}
+		}
+		//给settings赋值
+		Object.assign(settings,jsonp);
+		//给函数起不同的名字
+		name='jquery'+Math.random()+(+new Date);
+		name=name.replace('.',Math.round(Math.random()));
+		settings.data[settings.cb]=name;
+		window[name]=function(data){
+			settings.success(data);
+		}
+		//querystring
+		for(var k in settings.data){
+			arr.push(k+'='+settings.data[k]);
+		}
+		str=arr.join('&');
+		str=settings.url+'?'+str;
+		var script=document.createElement('script');
+		script.src=str;
+		document.getElementsByTagName('head')[0].appendChild(script);
+		script.remove();//解决script在head中多次插入问题，只要插入并且移除，必定调fn函数	
+	}
+</script>
+	</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+<script type="text/javascript">
+		/*ajax的缺点？
+		 * 什么叫跨域，跨源？
+		 * 同源：同域名，同端口，同协议
+		 * 跨域：不同域名，不同端口，不同协议。
+		 * 域名：IP地址的别名
+		 * 端口：
+		 * 协议：HTTP（网络超文本传输协议） HTTPS （安全网络传输协议）file(文件传输协议，不允许) ftp
+		 * 
+		 * 解决跨域问题：
+		 * 	1新版本的XMLHttpRequest+后端给权限
+		 * 		Access-Control-Allow-Origin
+		 * 	2服务器代理（只能用，不能改）
+		 * 		本地文件与服务器文件同源，服务器文件能访问到数据，本地文件就可以读取文件
+		 * 		使用服务器文件，在默认情况下
+		 * 3 flash
+		 * 4iframe跨域
+		 * 5jsonp：json+padding（json格式的数据内填充）
+		 * 		原理：jsonp的数据是对象，
+		 * 一些跨域标签：link img script（包含src）
+		 * 文件事什么内容不是文件后缀名决定的额，而是由内容决定的
+		 * script会尽可能的解析代码
+		 * 
+		 * 
+		 * 
+		 *jsonp的实现
+		 * 	1
+		 */
+//	setTimeout(function(){
+//		alert(b);
+//	},1000)
+//	window.onload=function(){
+//		alert(b);
+//	}
+		function fn(b){
+			alert(b);
+		}
+	
+		
+</script>
+<script type="text/javascript">
+	var b=15;
+	fn(b);
+</script>
+	</body>
+</html>

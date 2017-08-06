@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			ul,li{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			#list{
+				width:1100px;
+				margin:0 auto;
+				
+			}
+			#list li{
+				width:250px;
+				margin-left: 10px;
+				float:left;
+			}
+			li div{
+				width:236px;
+				margin-bottom: 5px;
+			}
+			li img{
+				width:236px;
+				border:none;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<ul id="list">
+			<li>
+				<div>
+					<img src="" alt="" />
+				</div>
+			</li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+<script type="text/javascript" src="jquery-3.2.1.js"></script>
+<script type="text/javascript">
+			$.ajax({
+				dataType:'jsonp',
+				url:'http://www.wookmark.com/api/json/popular?page=0&callback=?',
+				success:function(data){
+					for(var i=0;i<data.length;i++){
+						var n=maxheight();
+						$('li').eq(n).append($(`<div>
+						<img src="${data[i].preview}" alt="" />
+						</div>`))
+					}
+				
+				}
+			})
+			
+			//求li的最小高度值
+			function  maxheight(){
+				var index=0;
+				var num=Infinity;
+				$('li').each(function(indx,item){
+					if(item.offsetHeight<num){
+						num=item.offsetHeight;
+						index=indx;
+						console.log(index);
+					}
+				})
+				return index;
+			}
+		</script>
+	</body>
+</html>
