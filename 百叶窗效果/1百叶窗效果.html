@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			ul,li,p{
+				margin:0;
+				padding:0;
+			}
+			#ul1{
+				margin:auto;
+				width: 300px;
+				border-top:1px solid #000;
+			}
+			li{
+				height:30px;
+				line-height:30px;
+				position: relative;
+				overflow: hidden;
+				border-bottom: 1px dashed #333333;
+			}
+			div{
+				height:30px;
+				position:absolute;
+				top:-30px;
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="ul1">
+			<li>
+				<div>
+					<p>111111</p>
+					<p>222222</p>
+				</div>
+			</li>
+			<li>
+				<div>
+					<p>3333333</p>
+					<p>4444444</p>
+				</div>
+			</li>
+			<li>
+				<div>
+					<p>5555555</p>
+					<p>6666666</p>
+				</div>
+			</li>
+			<li>
+				<div>
+					<p>77777777</p>
+					<p>88888888</p>
+				</div>
+			</li>
+			<li>
+				<div>
+					<p>99999999</p>
+					<p>00000000</p>
+				</div>
+			</li>
+			<li>
+				<div>
+					<p>aaaaaaa</p>
+					<p>bbbbbbb</p>
+				</div>
+			</li>
+		</ul>
+<script type="text/javascript" src="Mtween.js"></script>
+		<script type="text/javascript">
+			var ul1=document.getElementById("ul1");
+			var timer=null;
+			var onoff=true;
+			 fn(ul1);
+			function fn(obj){
+				var divs=obj.getElementsByTagName('div');
+				var num=0
+//				setInterval(function(){
+//					
+//				},4000);
+				change();
+				function change(){
+					
+					timer=setInterval(function(){
+						move({
+							obj:divs[num],
+							attrs:{top:onoff?0:-30},
+							duration:200
+						})
+						if(onoff){
+							num++;
+						}else{
+							num--;
+						}
+						if(num==divs.length){	
+							onoff=!onoff;
+							num=0;
+						}
+					},1000)
+					
+				}
+			}
+		</script>
+	</body>
+</html>
