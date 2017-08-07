@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    	body{
+    		background:skyblue;
+    	}
+      *{
+        margin: 0;
+        padding: 0;
+      }
+      .pic{
+        width: 236px;
+        box-shadow:0 1px 3px rgba(0,0,0,.3);
+        overflow:hidden;
+        margin-top:10px;
+      }
+      img{
+        width:236px;
+        border: none;
+        display: block;
+      }
+      ul{
+        list-style: none;
+        margin: 0 auto;
+        /*border:1px solid #000;*/
+        width:1050px;
+        overflow: hidden;
+      }
+      li{
+        /*position: absolute;*/
+        border: 1px solid #ccc;
+        float: left;
+        margin: 8px;
+        width:236px;
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="ul">
+    	<li>
+          <!--<div class="pic">
+            <img src="http:\/\/www.wookmark.com\/images\/original\/638518_wookmark.jpg">
+          </div>
+          <div class="pic">
+            <img src="http:\/\/www.wookmark.com\/images\/original\/638518_wookmark.jpg">
+          </div>-->
+        </li>
+        <li>
+          <!--<div class="pic">
+            <img src="http:\/\/www.wookmark.com\/images\/original\/638518_wookmark.jpg">
+          </div>-->
+        </li>
+         <li>
+          <!--<div class="pic">
+            <img src="http:\/\/www.wookmark.com\/images\/original\/638518_wookmark.jpg">
+          </div>-->
+        </li>
+         <li>
+          <!--<div class="pic">
+            <img src="http:\/\/www.wookmark.com\/images\/original\/638518_wookmark.jpg">
+          </div>-->
+        </li>
+        
+        
+    </ul>
+<script src="jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	var num=0;
+	var onoff=true;
+	loadPic();
+	function loadPic(){
+		onoff=false;
+	$.ajax({
+		url:'http://www.wookmark.com/api/json/popular?callback=?',
+		data:{
+			page:num
+		},
+		dataType:'jsonp',
+		success:function(data){
+			$.each(data, function(index,item) {
+				let div=$('<div class="pic"></div>');
+				let img=$('<img>');
+				img.attr('src',item.preview)
+				img[0].onload=function(){
+					div.append(img);
+					$('li').eq(minIndex()).append(div);
+				}
+			});
+			onoff=true;
+		}
+	})
+}
+	//寻找最小高度的li
+	function minIndex(){
+		var n=Infinity;
+		var m=0;
+		$('li').each(function(index,item){
+			if($(item).innerHeight()<n){
+				n=$(item).innerHeight();
+				m=index;
+			}
+		})
+		return m;
+	}
+	//滚动窗口加载图片
+	$(window).scroll(function(){
+		var arr=[];
+		$('li').each(function(index,item){
+			arr.push(item.scrollHeight)
+		})
+		var n=Math.min.apply(null,arr);
+		if(n<$(window).innerHeight()+$(window).scrollTop()){
+			if(onoff){num++;loadPic()}	
+		}
+	})
+</script>
+</body>
+</html>
