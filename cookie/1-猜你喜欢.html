@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+	<div id="div"></div>
+	
+	<p id="p">
+		<!--<span style="padding:10px;background: #ccc;margin:3px;">服装</span><span style="padding:10px;background: #ccc;">游戏</span>-->
+	</p>
+	<ul id="ul">
+		
+	</ul>
+<script type="text/javascript">
+	
+	/*
+		1.服装
+		2.游戏
+		3.电影
+		4.音乐
+	*/
+	
+	var div=document.getElementById("div");
+	var p=document.getElementById("p");
+	var ul=document.getElementById("ul");
+	var arr = ['服装','游戏','电影','音乐'];
+	let obj = {
+		[arr[0]]:['男装','女装','童装','唐装','汉服','西服'],
+		[arr[1]]:['魔兽世界','LOL','DOT2','炉石','风暴英雄','守望先锋'],
+		[arr[2]]:['战狼2','阿凡达','死神来了','生化危机','异形','速度与激情','地道战'],
+		[arr[3]]:['count on me','暧昧','爱如潮水','200x年的第一场雪','告白气球','壁虎漫步']
+	}
+	
+//添加按钮
+	var html='';
+	for(var i=0;i<arr.length;i++){
+		html+=`<button>${arr[i]}</button>`;
+	}
+	div.innerHTML=html;
+
+//点击按钮出现不同的子级项
+var button=document.getElementsByTagName('button');
+var btn=Array.from(button);
+var like=getCookie('item');
+btn.forEach(function(item,index){
+	item.onclick=function(){
+		var html='';
+		if(!like.includes(this.innerHTML)){
+			like.push(this.innerHTML);
+			setCookie(like);
+		}
+		obj[arr[index]].forEach(function(item,index){
+			html+=`<li>${item}</li>`;
+		})
+		ul.innerHTML=html;
+	}
+})
+//设置cookie
+function setCookie($arr){
+	document.cookie='item='+JSON.stringify($arr);
+}
+//获取cookie
+function getCookie(str){
+	var s=document.cookie;
+	if(s){
+		var obj={};
+		var arr=s.split('=');
+		obj[arr[0]]=JSON.parse(arr[1]);
+		return obj[str];
+	}else{
+		return [];
+	}
+	
+}
+//一进来页面就看喜欢的
+
+if(getCookie('item')){
+	var html='';
+	var concats=[];
+	var arr2=getCookie('item');
+	arr2.forEach(function(item,index){
+		html+=`<span style="padding:10px;background: #ccc;margin:3px;">${item}</span>`;
+		concats.push(obj[item]);
+	})
+	p.innerHTML=html;
+	concats=concats.toString().split(',');
+	concats.sort(function(a,b){
+		return Math.random()-0.5;
+	})
+	concats.length=5;
+	html='';
+	concats.forEach(function(item){
+		html+=`<li>${item}</li>`;
+	})
+	ul.innerHTML=html;
+}
+
+</script>
+</body>
+</html>
