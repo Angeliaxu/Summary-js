@@ -43,8 +43,81 @@
 <script type="text/javascript">
 	var ww=$(window).innerWidth();
 	var pw=236;
+	var marginL=10;
+	var len=Math.floor(ww/(pw+marginL));
+	var ulW=len*(pw+marginL);
+	var arrT=[];
+	var arrL=[];
+	var num=0;
+	$('#ul').css('width',ulW);
+	for(var i=0;i<len;i++){
+		arrL.push(i*(pw+marginL));
+		arrT.push(0);
+	}
 	
 	
+	//跨域获取jsonp数据，渲染到页面上
+	changePic();
+	function changePic(){
+	$.ajax({
+		url:'http://www.wookmark.com/api/json/popular?callback=?',
+		data:{
+			num:0
+		},
+		dataType:'jsonp',
+		success:function(data){
+			$.each(data,function(index,item){
+					var li=$('<li>');
+					let iH = (item.height*pw)/item.width;
+					var img=$(`<img src="${item.preview}" style="height:${iH }px;"/>`);
+					img[0].onload=function(){
+						li.css({
+							top:arrT[maxTop()],
+							left:arrL[maxTop()]
+						})
+					
+						li.append(img);
+						$('#ul').append(li);
+						arrT[maxTop()]+=(iH+10);
+					}
+			});
+		}
+	})
+	}
+	
+	//当窗口改变时改变图片的位置
+	$(window).resize=function(){
+		var ww=$(window).innerWidth();
+		var len=Math.floor(ww/(pw+marginL));
+		var ulW=len*(pw+marginL);
+		var arrT=[];
+		var arrL=[];
+		for(var i=0;i<len;i++){
+			arrL.push(i*(pw+marginL));
+			arrT.push(0);
+		}
+		$('li').each(function(index,item){
+			$(item).css({
+				left:arrL[maxTop()],
+				top:arrT[maxTop()]
+			})
+			arrT[maxTop()]+=($(item).outerHeight()+10);
+		})
+	}
+	
+	
+	//获取高度最小值
+		function maxTop(){
+			var num=Math.min.apply(null,arrT);
+			var index=0;
+			for(let i=0;i<arrT.length;i++){
+				if(num==arrT[i]){
+					index=i;
+					break;
+				}
+			}
+			return index;
+		}
 </script>
 </body>
 </html>
