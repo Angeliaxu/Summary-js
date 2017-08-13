@@ -1,0 +1,252 @@
+body,ul,li,input,dl,dt,dd,h2{
+    margin:0;
+    padding:0;
+}
+a{
+    text-decoration: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+img{
+    border:0;
+    display: block;
+}
+ul,li{
+    list-style: none;
+}
+.clearfix:after{
+    content: '.';
+    visibility: hidden;
+    overflow: hidden;
+    display: block;
+    clear: both;
+    height: 0;
+}
+html{
+    height:100%;
+    width:100%;
+    overflow: hidden;
+}
+body{
+    height:100%;
+    width:100%;
+    font-size: 20/@rem;
+    font-family:"Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    background: #f3f3f3;
+    overflow: auto;
+    position:relative;
+}
+@rem:45rem;
+.box{
+    width:100%;
+    height:100%;
+    position:relative;
+}
+header{
+    width:100%;
+    height:74/@rem;
+    background:#00a2ed;
+    padding:38/@rem 20/@rem 0/@rem;
+    position: fixed;
+    z-index: 2;
+}
+header a{
+    display: block;
+    height:42/@rem;
+    float: left;
+    
+}
+.left{
+    width:205/@rem;
+    height:42/@rem;
+    float: left;
+}
+.left a{
+    width:72/@rem;
+    float: left;
+    background: url(../img/icon_03.jpg) no-repeat;
+}
+.left span{
+    display: block;
+    float: right;
+    width: 90/@rem;
+    height:42/@rem;
+    color: #fff;
+    font-size: 32/@rem;
+    line-height:40/@rem;
+}
+.right{
+    float: right;
+    width: 142/@rem;
+    margin-right: 40/@rem;
+}
+.right a:nth-child(1){
+    width: 56/@rem;
+    float: left;
+    background: url(../img/icon_05.jpg) no-repeat;
+}
+.right a:nth-child(2){
+    width: 50/@rem;
+    float: right;
+    background: url(../img/icon_07.jpg) no-repeat;
+}
+#index{
+    position: absolute;
+    width:100%;
+    margin-top: 112/@rem;
+}
+.swiper-container{
+    height:450/@rem;
+    position: relative;
+}
+
+.swiper-container img{
+    width:100%;
+    background-size: 100% 100%;
+}
+
+.list h2{
+    height:105/@rem;
+    font-size: 35/@rem;
+    font-weight: normal;
+    line-height: 105/@rem;
+    color:  #ffd300;
+    line-height:105/@rem;
+    padding-left: 33/@rem;
+    
+}
+.list a{
+    display: block;
+    height:170/@rem;
+    width:621/@rem;
+    border:1px solid #ddd;
+    background: #fff;
+    margin:0 auto;
+    margin-bottom: 15/@rem;
+    padding:25/@rem 32/@rem 0 35/@rem;
+    border-radius: 15/@rem;
+    box-shadow: 0 5px 2px #ccc;
+}
+.list dl{
+    height:170/@rem;
+}
+.list dt{
+    width:165/@rem;
+    height:145/@rem;
+    float: right;
+}
+.list img{
+    width:165/@rem;
+    height:145/@rem;
+    background-size:100% 100%;
+}
+.list dd{
+    float: left;
+    margin-top:5/@rem;
+    width:410/@rem;
+    font-size: 32/@rem;
+    line-height: 42/@rem;
+    color:#5b7492;
+}
+.mask{
+    height:100%;
+    width:100%;
+    background: rgb(97,97,97);
+    position:absolute;
+    top:0;
+    left:0;
+}
+#user{
+    z-index: 2;
+    top:0/@rem;
+    width:606/@rem;
+    left:-606/@rem;
+    position: absolute;
+    
+}
+.user-login{
+    height:180/@rem;
+    background: #00a2ed;
+    padding: 22/@rem 32/@rem;
+   
+}
+.user-login a{
+    display: block;
+    width:190/@rem;
+    height:66/@rem;
+    
+}
+.user-login a img{
+    height:66/@rem;
+    width: 66/@rem;
+    border-radius: 50%;
+    float: left;
+}
+.user-login a span{
+    float: right;
+    height:66/@rem;
+    line-height: 66/@rem;
+    color: #fff;
+    font-size: 30/@rem;
+}
+.star{
+    margin-top:67/@rem;
+    height:36/@rem;
+    width:500/@rem;
+}
+.star a{
+   display: block;
+   width:135/@rem;
+   height:36/@rem;
+   padding-left: 75/@rem;
+   font-size: 24/@rem;
+   line-height: 36/@rem;
+   color:#fff;
+}
+.star a:nth-child(1){
+    float: left; 
+}
+.star a:nth-child(2){
+    float: right;
+}
+.nav{
+   
+}
+.nav li{
+    height:100/@rem;
+    line-height: 100/@rem;
+    font-size: 30/@rem;
+}
+.nav li:nth-child(1){
+    background: #f0f0f0;
+    padding-left: 38/@rem;
+    
+}
+.nav li:nth-child(1) a{
+    display: block;
+    width:70/@rem;
+   color:#00a2ed;
+   background: url(../img/index.jpg) no-repeat 0 center;
+   padding-left: 70/@rem;
+    
+}
+.nav li:not(:nth-child(1)){
+    background: #fff;
+    padding-left: 38/@rem;
+}
+.nav li:not(:nth-child(1)) a{
+    display: block;
+    float: left;
+    width: 180/@rem;
+    color: #000;
+    
+}
+.nav span{
+    float: right;
+    width: 25/@rem;
+    height:25/@rem;
+    background: url(../img/plus.jpg) no-repeat center center;
+    margin-right:110/@rem;
+    margin-top:40/@rem;
+    background-size:100% 100% ;
+}
+//使用slide。js来写侧边栏滑动效果
