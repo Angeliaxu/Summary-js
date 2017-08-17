@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div  @click="fn($event)" id="box">{{num}}</div>
+		<script type="text/javascript" src="vue.js"></script>
+		<script type="text/javascript">
+			let demo=new Vue({
+				el:'#box',
+				data:{
+					num:0
+				},
+				methods:{
+					fn:function(ev){
+						this.num=++this.num;
+						console.log(ev);
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

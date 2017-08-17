@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>todos</title>
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+
+<body>
+    <section class="todoapp">
+        <div>
+            <header class="header" >
+                <h1>todos</h1>
+                <input class="new-todo" placeholder="请输入内容" v-model="val" @keyup.13="keyup">
+            </header>
+            <section class="main">
+                <input class="toggle-all" type="checkbox" >
+                <ul class="todo-list">
+                    <li v-for="(val,key) in arr" bind:class="completed">
+                        <div class="view">
+                            <input class="toggle" type="checkbox" v-model="val.checked" >
+                            <label>{{val.txt}}</label>
+                            <button class="destroy"></button>
+                        </div>
+                        <input class="edit" value="多多对对对">
+                    </li>
+                </ul>
+            </section>
+            <footer class="footer">
+	            <span class="todo-count">
+	            	<strong>0</strong>
+	            	<span>条未选中</span>
+	            </span>
+            </footer>
+        </div>
+    </section>
+<script src="../vue.js" charset="utf-8"></script>
+<script >
+    new Vue({
+        el:'.todoapp',
+        data:{
+            arr:[
+                {txt:'第一条信息',checked:true,id:1},
+                {txt:'第二条信息',checked:false,id:2},
+                {txt:'第三条信息',checked:false,id:3}
+            ],
+            val:''
+        },
+        methods:{
+            keyup(){
+              this.arr.push({
+                  txt:this.val,
+                  checked:false,
+                  id:+new Date
+              })
+              this.val='';
+            }
+        }
+    })
+</script>
+</body>
+</html>

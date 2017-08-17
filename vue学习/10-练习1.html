@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">
+			<ul>
+				<li v-for="(val,key) in arr">{{val}}</li>
+			</ul>
+		</div>
+<script src="vue.js" type="text/javascript"></script>
+<script type="text/javascript">
+	let demo=new Vue({
+		el:'#box',
+		data:{
+			arr:[]
+		}
+	})
+	setTimeout(function(){
+		demo.$data.arr=[1,2,3,4,5];
+	},1000)
+</script>
+	</body>
+</html>

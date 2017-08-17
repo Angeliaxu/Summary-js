@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box{
+				height:100px;
+				width:100px;
+				border:1px solid #000;
+			}
+			#box.hide{
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="box" @click="changeHide" :class="{hide:ishide}"></div>
+	
+	<script type="text/javascript" src="vue.js"></script>
+	<script type="text/javascript">
+		let demo=new Vue({
+			el:'#box',
+			data:{
+				ishide:true
+			},
+			methods:{
+				changeHide:function(){
+					this.ishide=!this.ishide;
+				}
+			}
+		})
+	</script>
+	</body>
+</html>
