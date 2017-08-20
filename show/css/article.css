@@ -1,0 +1,25 @@
+header {
+  position: fixed;
+  z-index: 9;
+}
+header a {
+  float: left;
+  width: 1.77777778rem;
+  height: 1.77777778rem;
+  color: #fff;
+  line-height: 1.77777778rem;
+  font-size: 1.11111111rem;
+  margin-top: 0.22222222rem;
+}
+header a:not(:last-child) {
+  font-size: 1.77777778rem;
+}
+header a:first-child {
+  margin-left: 0.44444444rem;
+}
+header a:nth-child(2) {
+  margin-left: 8.88888889rem;
+}
+header a:nth-child(3) {
+  margin-left: 0.44444444rem;
+}
