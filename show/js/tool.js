@@ -1,7 +1,8 @@
 (function(){
-getNewsList(newsList,loopPicture);
-userManage();
- getDetail()
+	getNewsList(newsList,loopPicture);
+	userManage();
+	getMore();
+	userManage();
 })()
 
 
@@ -34,7 +35,6 @@ function getNewsList($0,$1){
 
 //渲染列表的代码
 function newsList(data){
-	console.log(data)
 	var title=data.date==date()?'今日新闻':data.date;
 			$('.list').append($title=$('<h2>').text(title));
 			$.each(data.stories, function(i,e) {
@@ -53,7 +53,7 @@ function newsList(data){
 
 //封装轮播图
 function loopPicture(data){
-	console.log(data);
+
 	$.each(data.top_stories, function(i,e) {
 		$a=$(`<a  href="php/pjax.php?id=${e.id}" class="swiper-slide news">
 		<img src="${e.image}"/>
@@ -99,7 +99,22 @@ function userManage(){
 		$('.login').animate('left')
 	})
 }
-//点击获取新闻详情页面
-function getDetail(){
-
+//首页懒加载
+function getMore(){
+	$('body').scroll(function(){
+		console.log($('#index').innerHeight());
+	});
+}
+//用户管理页面
+function userManage(){
+	$('.toggle-button').click(function(){
+		$('.login').css({
+			display:'block'
+		});
+		$('body').css('overflow','hidden');
+		$('.mask').css({
+			display:'block',
+			opacity:1
+		})
+	})
 }

@@ -40,3 +40,6 @@ header {
   height: 2.48888889rem;
   background: #00a2ed;
 }
+body div.content {
+  font-size: 0.44444444rem;
+}

@@ -5,11 +5,10 @@ echo '<head>
 		<meta charset="UTF-8">
 		<meta name="referrer" content="never">
 		<title></title>
-		<link rel="stylesheet" href="../css/header.css" />
 		<link rel="stylesheet" href="../css/article.css" />
 		<script src="../js/index.js"></script>
 	</head>
-	<body>
+	<body >
 		<!--头部导航-->
 		<header>
 			<a href="javascript:;">☜</a>
@@ -25,9 +24,12 @@ echo '<head>
 				success:function(data){
 					$("body").append(data.body);
 					$s=$("<link>").attr("href",data.css).attr("rel","stylesheet");
-					$("head").append($s);			
+					$("head").append($s);	
+					$s2=$("<link>").attr("href","../css/header.css").attr("rel","stylesheet");
+					$("head").append($s2);
+						
 			}
-			})
+			});
 			$("a").eq(0).click(function(){
 				history.go(-1);
 			})

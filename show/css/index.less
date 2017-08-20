@@ -151,11 +151,14 @@ header a{
 .mask{
     height:100%;
     width:100%;
-    background: rgb(97,97,97);
-    position:absolute;
-    top:0;
-    left:0;
+    background: rgba(172,185,201,.4);
+    transition:opacity .3s ease;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    display: none;
 }
+
 #user{
     z-index: 2;
     top:0/@rem;
@@ -210,8 +213,8 @@ header a{
     float: right;
 }
 .nav li{
-    height:100/@rem;
-    line-height: 100/@rem;
+    height:95/@rem;
+    line-height: 95/@rem;
     font-size: 30/@rem;
 }
 .nav li:nth-child(1){
@@ -228,33 +231,36 @@ header a{
     
 }
 .nav li:not(:nth-child(1)){
-    background: #fff;
+   background: rgba(91,116,146,.75);
     padding-left: 38/@rem;
+   
 }
 .nav li:not(:nth-child(1)) a{
     display: block;
     float: left;
     width: 180/@rem;
-    color: #000;
+    color:#fff;
     
 }
 .nav span{
     float: right;
-    width: 25/@rem;
-    height:25/@rem;
-    background: url(../img/plus.jpg) no-repeat center center;
-    margin-right:110/@rem;
-    margin-top:40/@rem;
-    background-size:100% 100% ;
+    font-size: 40/@rem ;
+    margin-right:100/@rem;   
+    color:#fff;
 }
 //使用slideout.js来写侧边栏滑动效果
 .login{
+    width:100%;
+    position:fixed;
+    overflow:hidden;
+    z-index: 100; 
+    display: none;
+    transition: 1s ease;
+
+}
+.menue{
     width:70%;
-    height:1344/@rem;
-     position:absolute;
-     overflow-y:scroll;
-     display:none;
-     z-index: 100;
+   background: rgba(91,116,146,.75);
 }
 .swiper-slide span{
     position:absolute;

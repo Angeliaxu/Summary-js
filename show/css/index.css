@@ -152,10 +152,12 @@ header a {
 .mask {
   height: 100%;
   width: 100%;
-  background: #616161;
-  position: absolute;
-  top: 0;
+  background: rgba(172, 185, 201, 0.4);
+  transition: opacity .3s ease;
   left: 0;
+  top: 0;
+  opacity: 0;
+  display: none;
 }
 #user {
   z-index: 2;
@@ -208,8 +210,8 @@ header a {
   float: right;
 }
 .nav li {
-  height: 2.22222222rem;
-  line-height: 2.22222222rem;
+  height: 2.11111111rem;
+  line-height: 2.11111111rem;
   font-size: 0.66666667rem;
 }
 .nav li:nth-child(1) {
@@ -224,31 +226,32 @@ header a {
   padding-left: 1.55555556rem;
 }
 .nav li:not(:nth-child(1)) {
-  background: #fff;
+  background: rgba(91, 116, 146, 0.75);
   padding-left: 0.84444444rem;
 }
 .nav li:not(:nth-child(1)) a {
   display: block;
   float: left;
   width: 4rem;
-  color: #000;
+  color: #fff;
 }
 .nav span {
   float: right;
-  width: 0.55555556rem;
-  height: 0.55555556rem;
-  background: url(../img/plus.jpg) no-repeat center center;
-  margin-right: 2.44444444rem;
-  margin-top: 0.88888889rem;
-  background-size: 100% 100% ;
+  font-size: 0.88888889rem;
+  margin-right: 2.22222222rem;
+  color: #fff;
 }
 .login {
-  width: 70%;
-  height: 29.86666667rem;
-  position: absolute;
-  overflow-y: scroll;
-  display: none;
+  width: 100%;
+  position: fixed;
+  overflow: hidden;
   z-index: 100;
+  display: none;
+  transition: 1s ease;
+}
+.menue {
+  width: 70%;
+  background: rgba(91, 116, 146, 0.75);
 }
 .swiper-slide span {
   position: absolute;
