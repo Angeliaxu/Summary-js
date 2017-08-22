@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box{
+				height:100px;
+				width:100px;
+				background:deeppink;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<script type="text/javascript">
+			document.onclick=function(){
+				var xhr=new XMLHttpRequest;
+				xhr.open('get','/json');
+				xhr.send();
+				xhr.onload=function(){
+					console.log(xhr.responseText);
+				}
+			}
+		</script>
+	</body>
+</html>
