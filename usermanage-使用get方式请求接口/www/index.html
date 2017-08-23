@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="names" />
+		<input type="password" id="password"/>
+		<input type="button" value="登录" id="login"/>
+		<input type="button" value="注册" id="register"/>
+		<span></span>
+		<script type="text/javascript">
+			var names=document.getElementById("names");
+			var password=document.getElementById("password");
+			var register=document.getElementById("register");
+			var login=document.getElementById("login");
+			var span =document.getElementsByTagName('span')[0];
+			register.onclick=function(){
+				get(names.value,password.value,'register');
+			}
+			login.onclick=function(){
+				get(names.value,password.value,'login');
+			}
+			function get(name,pass,type){
+				var xhr=new XMLHttpRequest;
+				xhr.open('get',`/user?username=${name}&password=${pass}&act=${type}`);
+				xhr.send();
+				xhr.onload=function(){
+					
+					span.innerHTML=xhr.responseText;
+				}
+			}
+		</script>
+	</body>
+</html>

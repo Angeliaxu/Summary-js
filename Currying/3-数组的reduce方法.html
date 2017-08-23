@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+<script type="text/javascript">
+	/*
+	 
+	 * 对数组中的所有元素调用指定的回调函数。
+	 * 该回调函数的返回值为累积结果，并且此返回值在下一次调用该回调函数时作为参数提供
+	 * callback	accumulator	currentValue	currentIndex	array	return value
+	first 	call	1	1	0	[1, 2, 3, 4, 5]	2
+	second 	call	2	2	1	[1, 2, 3, 4, 5]	4
+	third 	call	4	3	2	[1, 2, 3, 4, 5]	7
+	fourth 	call	7	4	3	[1, 2, 3, 4, 5]	11
+	fifth 	call	11	5	4	[1, 2, 3, 4, 5]	16
+	 * */
+	var arr=[1,2,3,4,5];
+	var sum=arr.reduce(function(prev,cur,index,arr){
+		console.log(index);
+		return prev+cur;
+	},1)
+	var arrString = 'abcdaabc';
+
+	var j=arrString.split('').reduce(function(res, cur) {
+		res[cur] ? res[cur] ++ : res[cur] = 1
+    	return res;
+	}, {})
+	console.log(j);
+</script>
+	</body>
+</html>

@@ -1,8 +1,9 @@
 const http=require('http');
 const fs=require('fs');
-
+const qs=require('querystring');
+const URL=require('url');
 let arr=[
-	{username:'徐畅',passwords:'123456'},
+	{username:'小红',passwords:'123456'},
 	{username:'管管',passwords:'123456'},
 	{username:'脏脏',passwords:'123456'}
 ];
@@ -10,26 +11,26 @@ let txt={
 	code:0
 }
 const server=http.createServer((request,response)=>{
-	
+	console.log(request.url);
 	const url='www'+(request.url=='/'?'/index.html':request.url);
-	if(/user/.test(request.url)){
-			const userinfo=request.url.split('?')[1];	
-			const arr1=userinfo.split('&');
-			const j={};
-			arr1.forEach(function(e,i){	
-				const str=e.split('=');
-				j[str[0]]=str[1];
-				
+	const path=URL.parse(request.url,true);
+	let j=null;
+	if(path.pathname=='/user'){
+		let str='';
+			request.on('data',(data)=>{
+				str+=data;
+			
 			})
-			j.username = decodeURI(j['username']);
-			if(j.act=='register'){
-				if(arr.find((e)=>e.username==j.username)){
-					txt.mg="该用户名已被注册，请更换另一个名字";
-				}else{
-					txt.code=1;
-					txt.mg="注册成功";
-					arr.push(j);
-				}
+			request.on('end',()=>{
+				j=qs.parse(str);
+				if(j.act=='register'){
+					if(arr.find((e)=>e.username==j.username)){
+						txt.mg="该用户名已被注册，请更换另一个名字";
+					}else{
+						txt.code=1;
+						txt.mg="注册成功";
+						arr.push(j);
+					}
 				
 			}else if(j.act=='login'){
 					txt.code=1;
@@ -39,8 +40,10 @@ const server=http.createServer((request,response)=>{
 			response.writeHead(200,{'Content-Type':'text/html;charset=utf-8'});
 			response.write(JSON.stringify(txt));
 			response.end();
+			})
+			
+			
 	}else if(/html$|txt$/.test(url)){
-		console.log(1);
 		fs.readFile(url,(error,data)=>{
 			response.write(data);
 			response.end();
@@ -48,4 +51,4 @@ const server=http.createServer((request,response)=>{
 	}
 	
 })
-server.listen(2000);
+server.listen(91);

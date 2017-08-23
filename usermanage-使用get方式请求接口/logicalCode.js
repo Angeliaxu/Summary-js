@@ -1,8 +1,9 @@
 const http=require('http');
 const fs=require('fs');
-
+const qs=require('querystring');
+const URL=require('url');
 let arr=[
-	{username:'徐畅',passwords:'123456'},
+	{username:'小红',passwords:'123456'},
 	{username:'管管',passwords:'123456'},
 	{username:'脏脏',passwords:'123456'}
 ];
@@ -10,17 +11,22 @@ let txt={
 	code:0
 }
 const server=http.createServer((request,response)=>{
-	
 	const url='www'+(request.url=='/'?'/index.html':request.url);
 	if(/user/.test(request.url)){
-			const userinfo=request.url.split('?')[1];	
-			const arr1=userinfo.split('&');
-			const j={};
-			arr1.forEach(function(e,i){	
-				const str=e.split('=');
-				j[str[0]]=str[1];
-				
-			})
+			console.log(qs.parse(request.url))
+//			const userinfo=request.url.split('?')[1];
+//			console.log(qs.parse(userinfo));
+			console.log(URL.parse((request.url)));
+			console.log(URL.parse((request.url),true));
+			
+//			const arr1=userinfo.split('&');
+			const j=URL.parse((request.url),true).query;
+//			arr1.forEach(function(e,i){	
+//				const str=e.split('=');
+//				j[str[0]]=str[1];
+//				
+//			})
+			console.log(j);
 			j.username = decodeURI(j['username']);
 			if(j.act=='register'){
 				if(arr.find((e)=>e.username==j.username)){
@@ -40,7 +46,6 @@ const server=http.createServer((request,response)=>{
 			response.write(JSON.stringify(txt));
 			response.end();
 	}else if(/html$|txt$/.test(url)){
-		console.log(1);
 		fs.readFile(url,(error,data)=>{
 			response.write(data);
 			response.end();
@@ -48,4 +53,4 @@ const server=http.createServer((request,response)=>{
 	}
 	
 })
-server.listen(2000);
+server.listen(90);
