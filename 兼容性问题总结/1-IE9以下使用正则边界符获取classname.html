@@ -16,26 +16,39 @@
 		</ul>
 		
 		<script type="text/javascript">
-			function getclass(ele){
-				var t=ele.charAt(0);
-				var allEle=document.getElementsByTagName('*');
+//			function getclass(ele){
+//				var t=ele.charAt(0);
+//				var allEle=document.getElementsByTagName('*');
+//				var arr=[];
+//				var re=new RegExp('\\b'+ele.substr(1)+'\\b');
+//				console.log(re);
+//				if(t=='#'){
+//					return document.getElementById(ele.substring(1));
+//				}else if(t=='.'){
+//					for(var i=0;i<allEle.length;i++){
+//						if(allEle[i].className.match(re)){
+//							arr.push(allEle[i]);
+//						}
+//					}
+//					return arr;
+//				}else{
+//					return document.getElementsByTagName(ele);
+//				}
+//			}
+			function getclass(str){
+				var tag=document.getElementsByTagName('*');
+				var reg=new RegExp('(^|\\s)'+str+'($|\\s)','g');
+				console.log(reg);
 				var arr=[];
-				var re=new RegExp('\\b'+ele.substr(1)+'\\b');
-				console.log(re);
-				if(t=='#'){
-					return document.getElementById(ele.substring(1));
-				}else if(t=='.'){
-					for(var i=0;i<allEle.length;i++){
-						if(allEle[i].className.match(re)){
-							arr.push(allEle[i]);
-						}
+				for(var i=0;i<tag.length;i++){
+					console.log(tag[i].className)
+					if(reg.test(tag[i].className)){
+						arr.push(tag[i]);
 					}
-					return arr;
-				}else{
-					return document.getElementsByTagName(ele);
 				}
+				return arr;
 			}
-			console.log(getclass('li'));
+			console.log(getclass('list'));
 		</script>
 	</body>
 </html>

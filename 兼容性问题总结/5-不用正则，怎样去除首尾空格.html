@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+<script type="text/javascript">
+	var str='    d  f  s   df    ';
+	var arr=str.split('');
+	for(var i=0;i<arr.length;i++){
+		if(arr[0]==' '||arr[arr.length-1]==' '){
+			arr.shift();
+			arr.pop();
+		}
+	}
+	str=arr.join('');
+	console.log(str);
+//	/^\s+|\s+$/g
+	
+</script>
+	</body>
+</html>

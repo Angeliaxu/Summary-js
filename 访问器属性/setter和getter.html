@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			var a={
+				_b:5	
+			};
+			Object.defineProperty(a,'c',{
+				get:function(){
+					this._b=this._b-1
+					return this._b;
+				},	
+				set:function(newValue){
+					return this._b=newValue;
+				}
+		})
+			console.log(a.c,a._b);
+			console.log(a.c,a._b);
+			a.c=10;
+			console.log(a._b,a.c);
+			console.log(a.c>5&&a.c<5);
+		</script>
+	</body>
+</html>

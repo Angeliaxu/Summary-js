@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="inputs"/>
+		<span id="span"></span>
+		<script type="text/javascript">
+			
+			var j={
+				val:''
+			}
+			Object.defineProperty(j,'value',{
+				get:function(){
+					return this.val;
+				},
+				set:function(newValue){
+					this.val=newValue;
+				}
+			})
+			inputs.onkeyup=function(){
+				j.value=this.value;
+				span.innerHTML=j.val;
+			}
+		</script>
+	</body>
+</html>
