@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <!--
+        1.首先引入sea.js库
+        2.使用define变成模块
+            把模块变成sea.js下面的模块
+            define(function(require,exports,module){sea下的参数固定，不允许修改
+                require：模块之间依赖接口，当引入的是sea下面的模块的时候，那么require指执行完的结果就是exports
+                exports：对外提供接口的对象
+                这里写在其他js中定义的模块
+                exports.js中定义的模块=js中定义的模块;
+            })
+        3.使用exports，seajs.use调用模块
+            sea的默认根目录：sea.js这个文件
+            seajs.use('js/模块'，function（ex）{代表当前模块当中的exports
+                加载成功的回调函数
+            })
+        4.使用require依赖模块
+           如果一个模块依赖于另一个依赖模块的话，可以在defin中使用require参数引入另一个模块
+  </body>
+</html>
