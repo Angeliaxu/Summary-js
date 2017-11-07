@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <input type="text" id="text" value="http://www.baidu.com">
+        <input type="button"  id="btn" value="点击复制">
+    <script>
+        var text=document.getElementById('text').value,
+            btn=document.getElementById('btn');
+            btn.onclick=function() {  
+                var textArea = document.createElement("textarea");   
+                textArea.style.background = 'transparent';  
+                textArea.value = text;  
+                document.body.appendChild(textArea); 
+                textArea.select();  
+                try {  
+                    //调用execCommand接口，对选中的文字进行复制操作
+                    var successful = document.execCommand('copy');    
+                    var msg = successful ? 'successful' : 'unsuccessful';   
+                    console.log(successful,msg)       
+                } catch (err) {  
+                    console.log('Oops, unable to copy');  
+                }  
+                document.body.removeChild(textArea);
+            }
+
+    </script>
+    </body>
+</html>
