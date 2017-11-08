@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <script src="../jquery-3.2.1.min.js"></script>
+    <script>
+       /*
+            新版的ajax返回的是deferred对象，defer在英文中的意思延时,
+            返回deferred对象可以直接进行done和fail链式操作，done相当于
+            success，fail相当于error，deferred对象的另一个好处就是可以为
+            多个事件指定一个回调函数$.when(ajax(),ajax()).done().fail()，
+            $.when()里面只接收deferred对象， 
+        */
+        ($.ajax("test.html")
+        // .done(function(){
+        //     console.log("成功")
+        // })
+        // .fail(function(){
+        //     console.log("失败")
+        // })
+        
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+    <script src="../jquery-3.2.1.min.js"></script>
+    <script>
+        /* 
+            如果是普通函数想要有回调函数，做法步骤应该如下
+        */
+        // 定义一个deferred对象，先写一个函数,返回一个deferred对象，改变deferred对象的状态
+        var dtd=$.Deferred();
+         function test(dtd){
+             function task(){
+                console.log(1);
+                dtd.reject();  //改变deferred对象的执行状态，成功走done，失败走fail
+             }
+           setTimeout(task,2000);
+           return dtd;
+         }
+         
+         $.when(test(dtd)).done(function(){
+             console.log('successful')
+         }).fail(function(){
+             console.log('error')
+         })
+    </script>
+    </body>
+</html>
