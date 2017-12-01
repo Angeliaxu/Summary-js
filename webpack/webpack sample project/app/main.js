@@ -9,4 +9,5 @@
 //初始化时 APP文件  public文件  app文件包含入口文件和模块文件，public文件里面包含index.html文件，打包好之后有bundle.js文件
 // npm install --save-dev webpack-dev-server,安装完成之后要把package.json里面的start后面改为webpack-dev-server --progress
 var greeter=require('./Greeter');
+
 document.getElementById('root').appendChild(greeter());

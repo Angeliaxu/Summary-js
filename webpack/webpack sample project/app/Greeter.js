@@ -1,5 +1,11 @@
+var txt=require('./config');
+
 module.exports=function(){
     var greet=document.createElement('div');
-    greet.textContent='hello world angelia angeloa1111222333444';
+    // var x=(<div>aaaaaaaaaaaaaaaaaaaaaaaaa</div>);
+    // console.log(x);
+    
+    greet.textContent=txt.txt;
+    
     return greet;
 }
