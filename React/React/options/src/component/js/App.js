@@ -14,6 +14,7 @@ class App extends Component{
     // 首先根据order来确定类型，再根据id来确定选中元素
     select=(id,order)=>{
         let {data,choice}=this.state;
+        let arr=[];
         data.forEach((item)=>{
             if(item.order===order){
                 //首先大清洗，把每个标签的身上加上onoff=false
@@ -37,7 +38,7 @@ class App extends Component{
                     if(item.onoff&&!choice.includes(item)){
                         //同一种类型只能出现一次
                         choice.forEach((item1,index)=>{
-                            if(item1.order===item.order){
+                            if(item1.order===order){
                                 choice.splice(index,1);   
                             }
                         })
