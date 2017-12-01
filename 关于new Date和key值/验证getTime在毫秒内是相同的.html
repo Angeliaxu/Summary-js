@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <button>确定</button>
+    <script>
+        var btn=document.getElementsByTagName('button')[0];
+        btn.onclick=function(){
+        //getTime()是一个精确到毫秒的方法，如果在react中使用getTime()来作为组件的key值，那么会报错，因为在reac组件当中，组件生成的速度是在毫秒以内。
+            console.log(new Date().getTime());
+        //使用+号可以把new Date()精确到毫秒
+            console.log(+new Date())
+        }
+    </script>
+</body>
+</html>
