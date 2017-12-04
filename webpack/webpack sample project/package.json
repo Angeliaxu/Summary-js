@@ -12,6 +12,8 @@
     "webpack-dev-server": "^2.9.5"
   },
   "scripts": {
+
+    //运行命令 默认会去找webpack.config.js,如果不是叫这个名字，需要配置--config 配置文件名
     "start": "webpack-dev-server --progress"
   },
   "dependencies": {
