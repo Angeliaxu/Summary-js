@@ -1,5 +1,8 @@
+//参考文献 http://www.pro-react.com/materials/appendixA/
+
 const path=require('path');
 const webpack=require('webpack');
+const HtmlWebpackPlugin=require('html-webpack-plugin')
 module.exports={
     //当前目录下的APP里面的main.js文件
     devtool: 'eval-source-map',
@@ -101,7 +104,8 @@ module.exports={
         ]
     },
     plugins:[
-        new webpack.BannerPlugin('copyright flying unnicorns inc')
+        // new webpack.BannerPlugin('copyright flying unnicorns inc')
+        new HtmlWebpackPlugin({template:__dirname+"/app/index.tmpl.html"})
     ]
 }
 /* 
