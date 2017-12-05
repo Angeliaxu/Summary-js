@@ -13,69 +13,11 @@ class App extends Component{
     }
     // 首先根据order来确定类型，再根据id来确定选中元素
     select=(id,order)=>{
-        let {data,choice}=this.state;
-        let arr=[];
-        data.forEach((item)=>{
-            if(item.order===order){
-                //首先大清洗，把每个标签的身上加上onoff=false
-                item.data.forEach((item)=>{
-                    item.onoff=false;
-                    item.order=order;
-                });
-                //接着根据ID找到标签
-                item.data.forEach((item,index,arr)=>{
-                    if(item.id===id){
-                        item.onoff=!item.onoff;
-                    }
-                })
-            }
-        });
-        //根据开关把东西push进去
-        data.forEach((item)=>{
-            if(item.order===order){
-                //接着根据ID找到标签
-                item.data.forEach((item,index,arr)=>{
-                    if(item.onoff&&!choice.includes(item)){
-                        //同一种类型只能出现一次
-                        choice.forEach((item1,index)=>{
-                            if(item1.order===order){
-                                choice.splice(index,1);   
-                            }
-                        })
-                        choice.push(item);
-                    }
-                })
-            }
-        });
-        
-        this.setState({
-            data,
-            choice
-        })
+       
     }
 
     delete=(id,order)=>{
-       let {data,choice}=this.state;
-       
-       choice.forEach((item,index)=>{
-            if(item.id===id){
-                choice.splice(index,1);
-            }
-       })
-
-       data.forEach((item)=>{
-        if(item.order===order){
-            //接着根据ID找到标签
-            item.data.forEach((item,index,arr)=>{
-                if(item.id===id){
-                    item.onoff=!item.onoff;
-                }
-            })
-        }
-    });
-       this.setState({
-           choice
-       })
+    
     }
     render(){
         
@@ -95,7 +37,7 @@ class App extends Component{
                                 key={item.id}
                                 id={item.id}
                                 onClick={()=>this.select(item.id,item1.order)}
-                                className={item.onoff?'active':''}
+                                className={}
                                 >
                                     {item.desc}
                                </a>
