@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+    <!-- <frameset rows="160,*">
+        <frame src="https://v.youku.com/v_show/id_XMzkxODc0MzI5Mg==.html?spm=..m_26657.5~1~3~A" name="topFrame">
+        <frameset cols="50%,50%">
+            <frame src="https://v.youku.com/v_show/id_XMzkxODc0MzI5Mg==.html?spm=..m_26657.5~1~3~A" name="leftFrame">
+            <frame src="https://v.youku.com/v_show/id_XMzkxODc0MzI5Mg==.html?spm=..m_26657.5~1~3~A" name="rightFrame">
+        </frameset>
+    </frameset> -->
+    <script>
+        console.log(window.frames[0])
+        var baidu = window.open('https://www.baidu.com')
+        setTimeout(() => {
+            baidu.close();
+        }, 1000);
+        baidu.resizeTo(100,100)
+    </script>
+    <!-- top：top对象始终指向最高（最外）层的框架，也就是浏览器窗口
+        window:
+            1. screenLeft(screenX）、screenTop（screenY）,分别表示窗口相对于屏幕左边和上边的位置。不同浏览器下属性名字不同，需要判断
+                typeof window.screenLeft === 'number' ? window.screenLeft : window.screenX\
+            2. innerWith,innnerHeight,outerWidth,outerHeight,表示浏览器窗口大小，但是不同浏览器，这四个属性的表现值都不一样
+            3.document.documentElement.clientWidth,docuemnt.docuementElement.clientHeight：虽然最终无法确定浏览器窗口大小，但是我们
+            可以使用这两个属性来取得页面视口大小。可是这个属性在混杂模式下需要使用document.body.clientWidth、document.body.clientHeight
+                if(document.compatMode === 'CSS1Compat') {
+                    document.documentElement.clientWidth,docuemnt.docuementElement.clientHeight
+                } else {
+                    document.body.clientWidth、document.body.clientHeight
+                }
+    
+    -->
+</html>
