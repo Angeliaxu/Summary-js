@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50% 50%;
+            background:burlywood;
+            position: relative;
+            display: inline-block;
+        }
+        #dialog {
+            border: 10px solid transparent;
+            height: 0;
+            width: 0;
+            border-right-color:rgb(185, 109, 10);
+            position: absolute;
+            left: 90px;
+            top: 30px;
+        }
+        #dialog1 {
+            border: 8px solid transparent;
+            height: 0;
+            width: 0;
+            border-right-color:white;
+            position: absolute;
+            left: 95px;
+            top: 32px;
+            z-index: 1;
+        }
+        #content {
+            width: 150px;
+            border: 1px solid rgb(185, 109, 10);
+            padding: 15px;
+            line-height: 18px;
+            display: inline-block;
+            position: absolute;
+            left: 110px;
+            top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="avatar">
+        <div id="dialog"></div>
+        <div id="dialog1"></div>
+        <div id="content">1232312</div>
+    </div>
+</body>
+</html>
