@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function person(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    let p1 = new person();
+
+    function men(name, age, gender) {
+        person.call(this, name, age);
+        this.gender = gender;
+    }
+    men.prototype = new person();
+    men.prototype.constrcutor = 'men';
+
+    let men1 = new men('gege', 25, 'male');
+ 
+    function instanceOf(a, b) {
+        let left = a.__proto__;
+        let right = b.prototype;
+        while(true) {
+            console.log(888)
+            if (left === right) {
+                return true
+            } 
+            if (left === null) {
+                return false;
+            }
+            left = left.__proto__;
+        }
+
+    }
+    console.log(instanceOf(men1, person))
+    </script>
+</body>
+</html>

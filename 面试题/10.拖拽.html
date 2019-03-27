@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            height: 100px;
+            width: 100px;
+            background: red;
+            position: absolute;
+            left: 50px;
+            top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        let box = document.getElementById('box');
+        let result = box.getBoundingClientRect();
+        let offsetX, offsetY;
+        box.onmousedown = function(e){
+            offsetX = e.pageX - result.left;
+            offsetY = e.pageY - result.top;
+            box.onmousemove = function(e) {
+                this.style.cssText = `left:${e.pageX - offsetX}px;top:${e.pageY - offsetY}px;`;
+            }
+            box.onmouseup = function() {
+                this.onmousemove = null;
+            }
+        }
+        
+        
+    </script>
+</body>
+</html>

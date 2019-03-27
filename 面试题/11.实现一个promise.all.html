@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fetch1() {
+            return new Promise((resolve, reject) => {
+                setTimeout(()=> {
+                    resolve(1)
+                }, 1000)
+            });
+        }
+        function fetch2() {
+            return new Promise((resolve, reject) => {
+                setTimeout(()=> {
+                    resolve(2)
+                }, 2000)
+            });
+        }
+        function fetch3() {
+            return new Promise((resolve, reject) => {
+                setTimeout(()=> {
+                    resolve(3)
+                }, 3000)
+            });
+        }
+        let alls = function(arg) {
+            return new Promise((resolve, reject)=> {
+                let i = 0;
+                let result = [];
+                arg.forEach(ele => {
+                    ele().then((res) => {
+                        i++;
+                        result.push(res)
+                        if (i === arg.length) resolve(result);
+                    }).catch(()=> {
+                        reject();
+                    })
+                });
+            })
+        }
+
+        alls([fetch1, fetch2, fetch3]).then((res)=> {
+            console.log(res)
+        }).catch((err) => {
+            console.log(err)
+        })
+    </script>
+</body>
+</html>

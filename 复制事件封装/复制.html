@@ -6,10 +6,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
-        <input type="text" id="text" value="http://www.baidu.com">
+        <p id="text">http://www.baidu.com</p>
         <input type="button"  id="btn" value="点击复制">
+        <textarea class="textarea">34234</textarea>
     <script>
-        var text=document.getElementById('text').value,
+        var text=document.getElementById('text').innerHTML,
             btn=document.getElementById('btn');
             btn.onclick=function() {  
                 var textArea = document.createElement("textarea");   
@@ -27,7 +28,7 @@
                 }  
                 document.body.removeChild(textArea);
             }
-
+            document.getElementsByClassName('textarea')[0].select();
     </script>
     </body>
 </html>

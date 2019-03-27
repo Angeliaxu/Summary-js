@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .line {
+            width: 2px;
+            height: 50px;
+            background: black;
+            position: relative;
+            margin: 0 auto;
+            animation: swing 3s infinite;
+            transform: rotate(-30deg)
+        }
+        .circle {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: black;
+            position: absolute;
+            bottom: -10px;
+            left:-4px;
+        }
+        @keyframes swing {
+            0% {
+                transform: rotate(-30deg);
+            }
+            50% {
+                transform: rotate(30deg);
+            }
+            100% {
+                transform: rotate(-30deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="line">
+        <div class="circle"></div>
+    </div>
+</body>
+</html>

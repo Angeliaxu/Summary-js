@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="copy">点击复制</div>
+    <script>
+        let copy = document.getElementById('copy');
+        copy.addEventListener('click', clipBoard(copy.innerHTML), false)
+        // 复制到粘贴板
+        function isIos() {
+            const ua = navigator.userAgent;
+            let isIos = /ipad|iphone/.test(ua);
+            if (isIos) return true;
+            return false;
+        }
+        function clipBoard(value) {
+            return new Promise((resolve, reject) => {
+                if (!navigator.clipboard) {
+                navigator.clipboard.writeText(value)
+                .then(() => {
+                    resolve('复制成功')
+                })
+                .catch(() => {
+                    reject('复制失败')
+                })
+                } else {
+                const textArea = document.createElement('textarea');
+                textArea.value = value;
+                textArea.readOnly = true;
+                document.body.appendChild(textArea);
+                if (isIos()) {
+                    // let range = null;
+                    // let selection = null;
+                    // range = document.createRange();
+                    // range.selectNodeContents(textArea);
+                    // selection = window.getSelection();
+                    // selection.removeAllRanges();
+                    // selection.addRange(range);
+                    textArea.setSelectionRange(0, 999999);
+                } else {
+                    textArea.select();
+                }
+                try {
+                    // execCommand作用于可以编辑的区域并且designMode是off情况下，execCommand大部分手机都支持，只是command有些不支持
+                    let isSuccess = document.execCommand('copy');
+                    isSuccess ? resolve('复制成功') : reject('复制失败');
+                } catch (error) {
+                    reject('复制失败');
+                }
+                document.body.removeChild(textArea);
+                }
+            })
+        }
+    </script>
+</body>
+</html>
