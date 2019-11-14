@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var obj = {
+            a: {
+                b: {
+                    c: {
+                        d: {
+                            name: "京程"
+                        }
+                    }
+                }
+            },
+            b: {
+                c: {
+                    d: {
+                        b: {
+                            c: {
+                                d: {
+                                    c: {
+                                        d: {
+                                            b: {
+                                                c: {
+                                                    d: {
+                                                        name: "老袁"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            e: {
+                f: {
+                    g: {
+                        name: "老王"
+                    }
+                }
+            },
+            h: {
+                b: {
+                    c: {
+                        d: {
+                            value: "老班"
+                        }
+                    }
+                }
+            }
+        }
+    /**
+     * 要求答应出老袁在对象的什么地方，例如老袁在 b.c.d.b....
+     */    
+    console.log(String(obj))
+    console.log(/'老班'/.test(String(obj)));
+    
+
+
+    console.log(a,b); // undefined undefined
+    {
+        function a() {};
+        a = 50;
+        console.log(a); // 50+
+
+    }
+    console.log(a); // 50
+    {
+        b = 50;
+        function b() {};
+        console.log(b); // fun
+    }
+    console.log(b); // 50
+
+
+    </script>
+</body>
+</html>
